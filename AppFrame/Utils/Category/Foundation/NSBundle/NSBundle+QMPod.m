@@ -19,21 +19,8 @@
     return path;
 }
 
-+ (UIImage *)getPodImageWith:(Class)cla fileName:(NSString *)fileName type:(NSString *)type
-{
-    NSInteger scale = [UIScreen mainScreen].scale;
-    NSString *imageName = [NSString stringWithFormat:@"%@@%zdx.%@",fileName,scale,type];
-    
-    NSString *path = [NSBundle getPodResourcePathWith:cla fileName:imageName];
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
-    if (image == nil) {
-        image = [UIImage imageNamed:imageName];
-    }
-    return image;
-}
-
 + (NSBundle *)bundleWithPodName:(NSString *)podName{
-    if (!podName) {
+    if (podName == nil && podName.length == 0) {
         return [NSBundle mainBundle];
     }
     NSBundle * bundle = [NSBundle bundleForClass:NSClassFromString(podName)];
@@ -57,10 +44,24 @@
     return nil;
 }
 
-+ (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language podName:(NSString *)podName{
++ (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language podName:(nullable NSString *)podName{
     NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle bundleWithPodName:podName] pathForResource:language ofType:@"lproj"]];
     NSString *value = [bundle localizedStringForKey:key value:nil table:nil];
     return [[NSBundle mainBundle] localizedStringForKey:key value:value table:nil];
 }
 
++ (UIImage *)getPodImageWith:(nullable NSString *)podName fileName:(NSString *)fileName type:(NSString *)type
+{
+    NSInteger scale = [UIScreen mainScreen].scale;
+    NSString *imageName = [NSString stringWithFormat:@"%@@%zdx.%@",fileName,scale,type];
+    NSBundle * pod_bundle =[self bundleWithPodName:podName];
+    if (!pod_bundle) {
+        return nil;
+    }
+    if (!pod_bundle.loaded) {
+        [pod_bundle load];
+    }
+    UIImage *image = [UIImage imageNamed:imageName inBundle:pod_bundle compatibleWithTraitCollection:nil];
+    return image;
+}
 @end

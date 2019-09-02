@@ -53,7 +53,7 @@
  */
 - (void)creatLeftReturnBarButtonItem
 {
-    UIImage *image = [NSBundle getPodImageWith:[QMBaseViewController class] fileName:@"NavigationBack" type:@"png"];
+    UIImage *image = [NSBundle getPodImageWith:@"AppFrame" fileName:@"NavigationBack" type:@"png"];
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickLeftBarButtonItem) image:image itemSpaces:QMBarItemSpaceMake(17, 17)];
 }

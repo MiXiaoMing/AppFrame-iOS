@@ -17,8 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSString *)getPodResourcePathWith:(Class)cla fileName:(NSString *)fileName;
 
-+ (UIImage *)getPodImageWith:(Class)cla fileName:(NSString *)fileName type:(NSString *)type;
-
 /**
  获取某个podName对象的bundle对象
  */
@@ -27,8 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  根据key获取本地化对应的value
  */
-+ (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language podName:(NSString *)podName;
-
++ (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language podName:(nullable NSString *)podName;
++ (UIImage *)getPodImageWith:(nullable NSString *)podName fileName:(NSString *)fileName type:(NSString *)type;
 @end
 
 NS_ASSUME_NONNULL_END

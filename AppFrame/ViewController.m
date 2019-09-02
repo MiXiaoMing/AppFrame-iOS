@@ -25,7 +25,7 @@
     
     
     
-    UIImage *image = [NSBundle getPodImageWith:[QMBaseViewController class] fileName:@"NavigationBack" type:@"png"];
+    UIImage *image = [NSBundle getPodImageWith:nil fileName:@"NavigationBack" type:@"png"];
     
     NSLog(@"%@",image);
 }
