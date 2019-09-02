@@ -23,6 +23,7 @@
 #import "UIButton+QMGenerate.h"
 #import "UINavigationController+QMFullScreen.h"
 #import "UILabel+QMTapAction.h"
+#import "NSBundle+QMPod.h"
 
 // Foundation-Category
 #import "NSDictionary+QM.h"
