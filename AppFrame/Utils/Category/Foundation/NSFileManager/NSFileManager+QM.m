@@ -85,21 +85,5 @@
     return NO;
 }
 
-+ (NSString *)getPodResourcePathWith:(Class)cla fileName:(NSString *)fileName
-{
-    NSBundle *bundle = [NSBundle bundleForClass:cla];
-    NSDictionary *bundleDic = bundle.infoDictionary;
-    NSString *bundleName = [bundleDic objectForKey:@"CFBundleExecutable"];
-    NSString *path = [bundle pathForResource:fileName ofType:nil inDirectory:[NSString stringWithFormat:@"%@.bundle",bundleName]];
-    return path;
-}
 
-+ (UIImage *)getPodImageWith:(Class)cla fileName:(NSString *)fileName type:(NSString *)type
-{
-    NSInteger scale = [UIScreen mainScreen].scale;
-    NSString *imageName = [NSString stringWithFormat:@"NavigationBack@%zdx.%@",scale,type];
-    NSString *path = [NSFileManager getPodResourcePathWith:cla fileName:imageName];
-    UIImage *image = [UIImage imageWithContentsOfFile:path];
-    return image;
-}
 @end

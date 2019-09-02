@@ -57,6 +57,7 @@
 		004E869C22FD171E00E38C11 /* NSStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 004E869B22FD171E00E38C11 /* NSStringTests.m */; };
 		004E869E22FD46A500E38C11 /* NSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 004E869D22FD46A500E38C11 /* NSDateTests.m */; };
 		004E86A022FD589800E38C11 /* QMToolsManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 004E869F22FD589800E38C11 /* QMToolsManagerTests.m */; };
+		00CCD481231CF165006E660B /* NSBundle+QMPod.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCD480231CF165006E660B /* NSBundle+QMPod.m */; };
 		0367C7662582B0754F6EDB8C /* libPods-AppFrameTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 095945ACA9C534E9E47519AB /* libPods-AppFrameTests.a */; };
 		03E3E952F63E6FFFF45590F0 /* libPods-AppFrame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E83FB593301710B86A54D2B2 /* libPods-AppFrame.a */; };
 		84CB90547DF56A5C7DF6E7DC /* libPods-AppFrameUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 204BB4904A4C30F7B67A9CD6 /* libPods-AppFrameUITests.a */; };
@@ -194,6 +195,8 @@
 		004E869D22FD46A500E38C11 /* NSDateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSDateTests.m; sourceTree = "<group>"; };
 		004E869F22FD589800E38C11 /* QMToolsManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMToolsManagerTests.m; sourceTree = "<group>"; };
 		004E86A122FD592300E38C11 /* QMUtilsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMUtilsHeader.h; sourceTree = "<group>"; };
+		00CCD47F231CF164006E660B /* NSBundle+QMPod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+QMPod.h"; sourceTree = "<group>"; };
+		00CCD480231CF165006E660B /* NSBundle+QMPod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+QMPod.m"; sourceTree = "<group>"; };
 		095945ACA9C534E9E47519AB /* libPods-AppFrameTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppFrameTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10880A0422F832F50084B189 /* AppFramePrefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppFramePrefix.pch; sourceTree = "<group>"; };
 		204BB4904A4C30F7B67A9CD6 /* libPods-AppFrameUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppFrameUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -342,6 +345,7 @@
 		0005702F22F419450014F679 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				00CCD47E231CF153006E660B /* NSBundle */,
 				0019922F2318CC9D00F1DC1F /* NSNumber */,
 				0005703022F419450014F679 /* NSDictionary */,
 				0005703522F419450014F679 /* NSFileManager */,
@@ -563,6 +567,15 @@
 				004E869F22FD589800E38C11 /* QMToolsManagerTests.m */,
 			);
 			path = UtilsTests;
+			sourceTree = "<group>";
+		};
+		00CCD47E231CF153006E660B /* NSBundle */ = {
+			isa = PBXGroup;
+			children = (
+				00CCD47F231CF164006E660B /* NSBundle+QMPod.h */,
+				00CCD480231CF165006E660B /* NSBundle+QMPod.m */,
+			);
+			path = NSBundle;
 			sourceTree = "<group>";
 		};
 		1088094622F7C5760084B189 /* General */ = {
@@ -1012,6 +1025,7 @@
 				0005706422F419450014F679 /* NSString+QMVerification.m in Sources */,
 				001991952316501500F1DC1F /* QMBaseLabel.m in Sources */,
 				0005706D22F419450014F679 /* NSDate+QM.m in Sources */,
+				00CCD481231CF165006E660B /* NSBundle+QMPod.m in Sources */,
 				001992242318C35A00F1DC1F /* UIButton+QMGenerate.m in Sources */,
 				0005706122F419450014F679 /* NSDictionary+QM.m in Sources */,
 				0005705D22F419450014F679 /* UIView+QMDraw.m in Sources */,

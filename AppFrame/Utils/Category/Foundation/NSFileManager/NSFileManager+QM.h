@@ -50,11 +50,6 @@
  */
 + (BOOL)isAMR:(NSString*)audioPath;
 
-/**
- 获取资源路径
- */
-+ (NSString *)getPodResourcePathWith:(Class)cla fileName:(NSString *)fileName;
 
-+ (UIImage *)getPodImageWith:(Class)cla fileName:(NSString *)fileName type:(NSString *)type;
 
 @end

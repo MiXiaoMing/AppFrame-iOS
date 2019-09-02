@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AppFrame'
-  s.version          = '0.1.2'
+  s.version          = '0.1.4'
   s.summary          = 'AppFrame'
   s.homepage         = 'http://192.168.1.40/mobile'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -25,6 +25,11 @@ Pod::Spec.new do |s|
     ss.subspec 'Category' do |sss|
 
       sss.subspec 'Foundation' do |ssss|
+
+        ssss.subspec 'NSBundle' do |sssss|
+          sssss.source_files = 'AppFrame/Utils/Category/Foundation/NSBundle/*.{h,m}'
+          sssss.public_header_files = 'AppFrame/Utils/Category/Foundation/NSBundle/*.h'
+        end
 
         ssss.subspec 'NSNumber' do |sssss|
           sssss.source_files = 'AppFrame/Utils/Category/Foundation/NSNumber/*.{h,m}'

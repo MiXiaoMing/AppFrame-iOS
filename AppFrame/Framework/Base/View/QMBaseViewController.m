@@ -7,7 +7,7 @@
 //
 
 #import "QMBaseViewController.h"
-#import "NSFileManager+QM.h"
+#import "NSBundle+QMPod.h"
 #import "UIBarButtonItem+QMCreat.h"
 @interface QMBaseViewController ()
 
@@ -24,6 +24,9 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
+    if (self.navigationController.viewControllers.count != 1) {
+        [self creatLeftReturnBarButtonItem];
+    }
 }
 /**
  返回按钮点击
@@ -50,7 +53,7 @@
  */
 - (void)creatLeftReturnBarButtonItem
 {
-    UIImage *image = [NSFileManager getPodImageWith:[QMBaseViewController class] fileName:@"NavigationBack" type:@"png"];
+    UIImage *image = [NSBundle getPodImageWith:[QMBaseViewController class] fileName:@"NavigationBack" type:@"png"];
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickLeftBarButtonItem) image:image itemSpaces:QMBarItemSpaceMake(17, 17)];
 }

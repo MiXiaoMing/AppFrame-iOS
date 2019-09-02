@@ -18,10 +18,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor yellowColor];
+    
+    NSLog(@"1 - %@",[QMAppGlobalConfig sharedInstance].appLanguage);
+    [[QMAppGlobalConfig sharedInstance] setAppCurrentLanguage:@"zh-Hans"];
+    NSLog(@"2 - %@",[QMAppGlobalConfig sharedInstance].appLanguage);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
+    
 }
 
 @end

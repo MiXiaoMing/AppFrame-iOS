@@ -8,10 +8,12 @@
 
 #import "QMAppGlobalConfig.h"
 
+#define QMAppLanguage @"QMAppLanguage"
+
 @interface QMAppGlobalConfig ()
 
 @property (nonatomic,assign,readwrite) QMAppEnvironment enviroment;
-
+@property (nonatomic,strong,readwrite) NSString *appLanguage;
 @end
 
 @implementation QMAppGlobalConfig
@@ -34,6 +36,8 @@ static QMAppGlobalConfig *sharedSingleton = nil;
     self = [super init];
     if (self) {
         self.enviroment = QMAppDevelopEnvironment;
+        NSArray *lanArr = @[@"en",@"zh-Hans"];
+        [[NSUserDefaults standardUserDefaults] setObject:lanArr forKey:QMAppLanguage];
     }
     return self;
 }
@@ -61,8 +65,49 @@ static QMAppGlobalConfig *sharedSingleton = nil;
 
 - (void)setCurrentEnviroment:(QMAppEnvironment)enviroment
 {
-    self.enviroment = enviroment;
+    _enviroment = enviroment;
+}
+-(QMAppEnvironment)enviroment
+{
+    return _enviroment;
 }
 
+
+- (void)setAppCurrentLanguage:(NSString *)language
+{
+    if ([_appLanguage isEqualToString:language]) {
+        return;
+    }
+    NSArray *arr = [[NSUserDefaults standardUserDefaults] objectForKey:QMAppLanguage];
+    if ([arr containsObject:language]) {
+        _appLanguage = language;
+    }else
+    {
+        _appLanguage = arr.firstObject;
+    }
+}
+
+- (void)setAppSupportLanguage:(NSArray <NSString *>*)languageArr
+{
+    [[NSUserDefaults standardUserDefaults] setObject:languageArr forKey:QMAppLanguage];
+}
+
+- (NSString *)appLanguage
+{
+    if (_appLanguage) {
+        return _appLanguage;
+    }else
+    {
+        NSString * languageName = languageName = [[[NSUserDefaults standardUserDefaults] objectForKey:@"AppleLanguages"] firstObject];
+        NSArray *arr = [[NSUserDefaults standardUserDefaults] objectForKey:QMAppLanguage];
+        if ([arr containsObject:languageName]) {
+            _appLanguage = languageName;
+        }else
+        {
+            _appLanguage = arr.firstObject;
+        }
+        return _appLanguage;
+    }
+}
 
 @end
