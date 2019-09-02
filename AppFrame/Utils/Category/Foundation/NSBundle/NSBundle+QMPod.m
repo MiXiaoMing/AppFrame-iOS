@@ -23,12 +23,12 @@
 {
     NSInteger scale = [UIScreen mainScreen].scale;
     NSString *imageName = [NSString stringWithFormat:@"%@@%zdx.%@",fileName,scale,type];
-    UIImage *image = [UIImage imageNamed:imageName];
-    if (image) {
-        return image;
-    }
+    
     NSString *path = [NSBundle getPodResourcePathWith:cla fileName:imageName];
-    image = [UIImage imageWithContentsOfFile:path];
+    UIImage *image = [UIImage imageWithContentsOfFile:path];
+    if (image == nil) {
+        image = [UIImage imageNamed:imageName];
+    }
     return image;
 }
 
