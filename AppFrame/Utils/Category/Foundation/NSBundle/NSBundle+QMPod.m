@@ -20,7 +20,7 @@
 }
 
 + (NSBundle *)bundleWithPodName:(NSString *)podName{
-    if (podName == nil && podName.length == 0) {
+    if (podName == nil || podName.length == 0) {
         return [NSBundle mainBundle];
     }
     NSBundle * bundle = [NSBundle bundleForClass:NSClassFromString(podName)];
@@ -47,6 +47,9 @@
 + (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language podName:(nullable NSString *)podName{
     NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle bundleWithPodName:podName] pathForResource:language ofType:@"lproj"]];
     NSString *value = [bundle localizedStringForKey:key value:nil table:nil];
+    if (value) {
+        return value;
+    }
     return [[NSBundle mainBundle] localizedStringForKey:key value:value table:nil];
 }
 
