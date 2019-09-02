@@ -19,9 +19,15 @@
     [super viewDidLoad];
     self.view.backgroundColor = [UIColor yellowColor];
     
-    NSLog(@"1 - %@",[QMAppGlobalConfig sharedInstance].appLanguage);
-    [[QMAppGlobalConfig sharedInstance] setAppCurrentLanguage:@"zh-Hans"];
-    NSLog(@"2 - %@",[QMAppGlobalConfig sharedInstance].appLanguage);
+//    NSLog(@"1 - %@",[QMAppGlobalConfig sharedInstance].appLanguage);
+//    [[QMAppGlobalConfig sharedInstance] setAppCurrentLanguage:@"zh-Hans"];
+//    NSLog(@"2 - %@",[QMAppGlobalConfig sharedInstance].appLanguage);
+    
+    
+    
+    UIImage *image = [NSBundle getPodImageWith:[QMBaseViewController class] fileName:@"NavigationBack" type:@"png"];
+    
+    NSLog(@"%@",image);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
