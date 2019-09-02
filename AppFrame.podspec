@@ -2,10 +2,10 @@ Pod::Spec.new do |s|
   s.name             = 'AppFrame'
   s.version          = '0.1.4'
   s.summary          = 'AppFrame'
-  s.homepage         = 'http://192.168.1.40/mobile'
+  s.homepage         = 'https://github.com/MiXiaoMing'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'edz' => 'AppFrame' }
-  s.source           = { :git => 'http://192.168.1.40/mobile/AppFrame-iOS.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/MiXiaoMing/AppFrame-iOS', :tag => s.version.to_s }
   s.requires_arc = true
 
   s.ios.deployment_target = '8.0'
