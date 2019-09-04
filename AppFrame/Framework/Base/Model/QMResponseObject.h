@@ -14,7 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic,copy) NSString *status; 
 @property (nonatomic,copy) NSString *error_msg;
-@property (nonatomic,copy) NSString *token;
+@property (nonatomic,copy) NSString *timestamp;
+@property (nonatomic,copy) NSDictionary *data;
 
 @end
 
