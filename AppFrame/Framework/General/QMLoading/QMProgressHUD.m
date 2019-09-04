@@ -64,11 +64,13 @@
  */
 + (void)showLoadingViewTo:(nullable UIView *)superView
 {
-    MBProgressHUD *hud = [QMProgressHUD creatNew:superView];
-    hud.removeFromSuperViewOnHide = true;
-    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
-    hud.bezelView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.54];
-    hud.contentColor = [UIColor whiteColor];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        MBProgressHUD *hud = [QMProgressHUD creatNew:superView];
+        hud.removeFromSuperViewOnHide = true;
+        hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+        hud.bezelView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.54];
+        hud.contentColor = [UIColor whiteColor];
+    });
 }
 + (void)showTextViewTo:(nullable UIView *)superView
         bezelViewColor:(nullable UIColor *)bezelViewColor
@@ -177,13 +179,15 @@
 
 + (void)hiddenAllHub
 {
-    UIView *superView = (UIView *)[[UIApplication sharedApplication] keyWindow];
-    for (UIView *view in superView.subviews) {
-        if ([view isMemberOfClass:[MBProgressHUD class]]) {
-            MBProgressHUD *hub = (MBProgressHUD *)view;
-            [hub hideAnimated:true];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIView *superView = (UIView *)[[UIApplication sharedApplication] keyWindow];
+        for (UIView *view in superView.subviews) {
+            if ([view isMemberOfClass:[MBProgressHUD class]]) {
+                MBProgressHUD *hub = (MBProgressHUD *)view;
+                [hub hideAnimated:true];
+            }
         }
-    }
+    });
 }
 #pragma mark - private method
 + (MBProgressHUD *)creatNew:(nullable UIView *)view
