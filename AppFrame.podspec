@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AppFrame'
-  s.version          = '0.1.9'
+  s.version          = '0.2.0'
   s.summary          = 'AppFrame'
   s.homepage         = 'https://github.com/MiXiaoMing'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }

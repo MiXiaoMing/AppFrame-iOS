@@ -39,9 +39,9 @@
             hud.backgroundView.color = backgroundViewColor;
         }
         if (contentText) {
-            hud.label.text = contentText;
+            hud.detailsLabel.text = contentText;
             if (textColor) {
-                hud.label.textColor = textColor;
+                hud.detailsLabel.textColor = textColor;
             }
         }
         if (duration > CGFLOAT_MAX || duration > NSUIntegerMax || duration > NSIntegerMax) {
@@ -64,15 +64,11 @@
  */
 + (void)showLoadingViewTo:(nullable UIView *)superView
 {
-    [QMProgressHUD showIndeterminateLoadingViewTo:nil
-                                   bezelViewColor:[UIColor colorWithWhite:0 alpha:0.54]
-                                    conctentColor:[UIColor whiteColor]
-                                           offset:CGPointZero
-                              backgroundViewColor:nil
-                                        textColor:nil
-                                             text:nil
-                                         duration:2.
-                                         complete:nil];
+    MBProgressHUD *hud = [QMProgressHUD creatNew:superView];
+    hud.removeFromSuperViewOnHide = true;
+    hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
+    hud.bezelView.backgroundColor = [UIColor colorWithWhite:0 alpha:0.54];
+    hud.contentColor = [UIColor whiteColor];
 }
 + (void)showTextViewTo:(nullable UIView *)superView
         bezelViewColor:(nullable UIColor *)bezelViewColor
@@ -104,10 +100,10 @@
             hud.backgroundView.color = backgroundViewColor;
         }
         if (contentText) {
-            hud.label.text = contentText;
+            hud.detailsLabel.text = contentText;
             if (textColor) {
-                hud.label.textColor = textColor;
-                hud.label.font = [UIFont systemFontOfSize:16];
+                hud.detailsLabel.textColor = textColor;
+                hud.detailsLabel.font = [UIFont systemFontOfSize:16];
             }
         }
         if (duration > CGFLOAT_MAX || duration > NSUIntegerMax || duration > NSIntegerMax) {
@@ -159,7 +155,7 @@
             hud.backgroundView.color = backgroundViewColor;
         }
         if (contentText) {
-            hud.label.text = contentText;
+            hud.detailsLabel.text = contentText;
         }
         if (customView) {
             hud.customView = customView;
