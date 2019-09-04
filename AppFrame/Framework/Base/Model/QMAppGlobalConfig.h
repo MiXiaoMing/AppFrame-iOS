@@ -25,7 +25,7 @@ typedef enum : NSUInteger {
  */
 @property (nonatomic,strong,readonly) NSString *appLanguage;
 
-+ (QMAppGlobalConfig *) sharedInstance;
++ (instancetype) sharedInstance;
 
 - (void)setCurrentEnviroment:(QMAppEnvironment)enviroment;
 
