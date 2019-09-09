@@ -142,9 +142,17 @@
         NSProcessInfo *processInfo = [[NSProcessInfo alloc] init];
         platform = [processInfo.environment objectForKey:@"SIMULATOR_MODEL_IDENTIFIER"];
     }
-    
-    if ([platform compare:@"iPhone10" options:NSCaseInsensitiveSearch] == NSOrderedDescending) {
-        return true;
+    NSArray *arr = [platform componentsSeparatedByString:@","];
+    NSString *deviceStr = [arr firstObject];
+    NSString *typeStr = [arr lastObject];
+    if ([deviceStr containsString:@"iPhone"]) {
+        deviceStr = [deviceStr stringByReplacingOccurrencesOfString:@"iPhone" withString:@""];
+        if ([deviceStr intValue] > 10 || ([deviceStr isEqualToString:@"10"] && ([typeStr isEqualToString:@"3"] || [typeStr isEqualToString:@"6"]))) {
+            return true;
+        }else
+        {
+            return false;
+        }
     }else
     {
         return false;
