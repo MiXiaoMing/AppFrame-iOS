@@ -36,6 +36,7 @@
 #define kWidthScale (KSCREEN_WIDTH/375.0)
 #define kHeight(h) (h*(KSCREEN_HEIGHT/667.0))
 #define kWidth(w) (w*kWidthScale)
+#define kStatusBarHeight (IsPhoneX?44:20)
 
 // 文字大小
 #define kFont(font) [UIFont systemFontOfSize:font]
