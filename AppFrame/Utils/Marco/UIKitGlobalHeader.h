@@ -35,7 +35,7 @@
 // 适配比例
 #define kWidthScale (KSCREEN_WIDTH/375.0)
 #define kHeight(h) (h*(KSCREEN_HEIGHT/667.0))
-#define kWidth(w) (w*kWidthScale)
+#define kWidth(w) ceil(w*kWidthScale)
 #define kStatusBarHeight (IsPhoneX?44:20)
 #define kBottomSafeAreaInsets (IsPhoneX?34:0)
 
