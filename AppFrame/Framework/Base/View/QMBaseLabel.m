@@ -68,7 +68,7 @@
         return textRect;
     }else
     {
-        return bounds;
+        return textRect;
     }
 }
 -(void)drawTextInRect:(CGRect)requestedRect {
