@@ -7,16 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-typedef enum : NSUInteger {
-    QMTextAlignNomal,
-    QMTextAlignTop,
-    QMTextAlignBottom
-} QMTextAlign;
+
 NS_ASSUME_NONNULL_BEGIN
 
 @interface QMBaseLabel : UILabel
-@property (nonatomic, assign) UIEdgeInsets customEdge;
-@property (nonatomic, assign) QMTextAlign textAlign;
+
 @end
 
 NS_ASSUME_NONNULL_END

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AppFrame'
-  s.version          = '0.2.7'
+  s.version          = '0.2.8'
   s.summary          = 'AppFrame'
   s.homepage         = 'https://github.com/MiXiaoMing'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -196,7 +196,11 @@ Pod::Spec.new do |s|
         ssss.source_files = 'AppFrame/Framework/General/QMCountDownButton/*.{h,m}'
         ssss.public_header_files = 'AppFrame/Framework/General/QMCountDownButton/*.h'
       end
-
+      sss.subspec 'QMAdjustableLabel' do |ssss|
+        ssss.dependency 'AppFrame/Framework/Base'
+        ssss.source_files = 'AppFrame/Framework/General/QMAdjustableLabel/*.{h,m}'
+        ssss.public_header_files = 'AppFrame/Framework/General/QMAdjustableLabel/*.h'
+      end
     end
 
   end

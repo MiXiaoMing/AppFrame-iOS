@@ -27,6 +27,7 @@
 		0005706B22F419450014F679 /* NSSet+QMBlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005704D22F419450014F679 /* NSSet+QMBlocksKit.m */; };
 		0005706C22F419450014F679 /* NSObject+QM.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005705022F419450014F679 /* NSObject+QM.m */; };
 		0005706D22F419450014F679 /* NSDate+QM.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005705422F419450014F679 /* NSDate+QM.m */; };
+		00149A362328BF2100F2F94F /* QMAdjustableLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00149A352328BF2100F2F94F /* QMAdjustableLabel.m */; };
 		0019916A2314CCBB00F1DC1F /* UIColor+QM.m in Sources */ = {isa = PBXBuildFile; fileRef = 001991692314CCBB00F1DC1F /* UIColor+QM.m */; };
 		0019916E2314F4D800F1DC1F /* UINavigationController+QMFullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 0019916D2314F4D800F1DC1F /* UINavigationController+QMFullScreen.m */; };
 		001991732314FE8300F1DC1F /* QMResponseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 001991722314FE8300F1DC1F /* QMResponseObject.m */; };
@@ -140,6 +141,8 @@
 		0005705122F419450014F679 /* NSObject+QM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+QM.h"; sourceTree = "<group>"; };
 		0005705322F419450014F679 /* NSDate+QM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+QM.h"; sourceTree = "<group>"; };
 		0005705422F419450014F679 /* NSDate+QM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+QM.m"; sourceTree = "<group>"; };
+		00149A342328BF2100F2F94F /* QMAdjustableLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMAdjustableLabel.h; sourceTree = "<group>"; };
+		00149A352328BF2100F2F94F /* QMAdjustableLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMAdjustableLabel.m; sourceTree = "<group>"; };
 		001991682314CCBB00F1DC1F /* UIColor+QM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+QM.h"; sourceTree = "<group>"; };
 		001991692314CCBB00F1DC1F /* UIColor+QM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QM.m"; sourceTree = "<group>"; };
 		0019916B2314D5BA00F1DC1F /* QMLibraryHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMLibraryHeader.h; sourceTree = "<group>"; };
@@ -464,6 +467,15 @@
 			path = Marco;
 			sourceTree = "<group>";
 		};
+		00149A332328BEFF00F2F94F /* QMAdjustableLabel */ = {
+			isa = PBXGroup;
+			children = (
+				00149A342328BF2100F2F94F /* QMAdjustableLabel.h */,
+				00149A352328BF2100F2F94F /* QMAdjustableLabel.m */,
+			);
+			path = QMAdjustableLabel;
+			sourceTree = "<group>";
+		};
 		001991672314CCA400F1DC1F /* UIColor */ = {
 			isa = PBXGroup;
 			children = (
@@ -581,6 +593,7 @@
 		1088094622F7C5760084B189 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				00149A332328BEFF00F2F94F /* QMAdjustableLabel */,
 				001991AB23165EEA00F1DC1F /* QMCountDownButton */,
 				001991742315007D00F1DC1F /* QMLoading */,
 			);
@@ -1010,6 +1023,7 @@
 				001991A12316531400F1DC1F /* QMBaseViewController.m in Sources */,
 				0005706022F419450014F679 /* NSDictionary+QMBlocksKit.m in Sources */,
 				0005706B22F419450014F679 /* NSSet+QMBlocksKit.m in Sources */,
+				00149A362328BF2100F2F94F /* QMAdjustableLabel.m in Sources */,
 				0005705F22F419450014F679 /* UIDevice+QM.m in Sources */,
 				C70C5D1C230EBA8100248F7B /* UINavigation+QMFixSpace.m in Sources */,
 				C71BDCE322F187DB00B504F1 /* ViewController.m in Sources */,
