@@ -24,5 +24,5 @@
 
 #import "QMProgressHUD.h"
 #import "QMCountDownButton.h"
-
+#import "QMAdjustableLabel.h"
 #endif /* FrameworkHeader_h */
