@@ -25,7 +25,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  传入十六进制字符串色值
  */
-+ (UIColor *)hexColorWithString:(NSString *)string alpha:(float) alpha;
++ (UIColor *)hexColorWithString:(NSString *)string alpha:(float)alpha;
+
++ (UIColor *)hexColorWithInt:(int)hex alpha:(float)alpha;
 
 @end
 

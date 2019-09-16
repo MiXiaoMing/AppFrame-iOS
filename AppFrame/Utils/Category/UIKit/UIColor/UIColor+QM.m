@@ -24,7 +24,7 @@
     return [UIColor hexColorWithString:string alpha:1.0f];
 }
 
-+ (UIColor *)hexColorWithString:(NSString *)string alpha:(float) alpha
++ (UIColor *)hexColorWithString:(NSString *)string alpha:(float)alpha
 {
     if ([string hasPrefix:@"#"]) {
         string = [string substringFromIndex:1];
@@ -56,5 +56,10 @@
                            green:((float) g / 255.0f)
                             blue:((float) b / 255.0f)
                            alpha:alpha];
+}
++ (UIColor *)hexColorWithInt:(int)hex alpha:(float)alpha
+{
+    UIColor *color = [UIColor colorWithRed:((float)((hex & 0xFF0000) >> 16))/255.0 green:((float)((hex & 0xFF00) >> 8))/255.0 blue:((float)(hex & 0xFF))/255.0 alpha:(alpha)];
+    return color;
 }
 @end

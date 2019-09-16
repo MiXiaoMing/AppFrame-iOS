@@ -29,8 +29,9 @@
 // 颜色转换
 #define kColorWith_RGBA(r, g, b, a) [UIColor colorWithRed:r/255. green:g/255. blue:b/255. alpha:a]
 #define kColorWith_RGB(r,g,b) kColorWith_RGBA(r,g,b,1.0f)
-#define kColorWith_HexRGBA(rgbValue, a) [UIColor hexColorWithString:rgbValue alpha:a]
-#define kColorWith_HexRGB(rgbValue) kColorWithHexRGBA(rgbValue, 1.0f)
+#define kColorWith_RGBA_Hex(rgbValue, a) [UIColor hexColorWithInt:rgbValue alpha:1]
+#define kColorWith_RGB_Hex(rgbValue) kColorWithHexRGBA(rgbValue, 1.0f)
+
 
 // 适配比例
 #define kWidthScale (KSCREEN_WIDTH/375.0)
@@ -39,6 +40,8 @@
 #define kFloorWidth(w) floor(w*kWidthScale)
 #define kStatusBarHeight (IsPhoneX?44:20)
 #define kBottomSafeAreaInsets (IsPhoneX?34:0)
+#define SCREEN_ORIGINY ([[UIApplication sharedApplication] statusBarFrame].size.height + 44.0f)
+#define kTabBarHeight (IsPhoneX ? 83:49)
 
 // 文字大小
 #define kFont(font) [UIFont systemFontOfSize:font]

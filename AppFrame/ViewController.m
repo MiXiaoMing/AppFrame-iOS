@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "AppFrame.h"
 #import "QMProgressHUD.h"
+#import "UIColor+QM.h"
 @interface ViewController ()
 
 @end
@@ -36,6 +37,10 @@
 //    });
     
     NSLog(@"--------%ld",IsPhoneX);
+    
+    UIColor *color = [UIColor hexColorWithInt:0xf9f1f2 alpha:1];
+    self.view.backgroundColor = color;
+    NSLog(@"%@",color);
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
