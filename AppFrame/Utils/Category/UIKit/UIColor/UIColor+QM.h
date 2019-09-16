@@ -27,8 +27,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIColor *)hexColorWithString:(NSString *)string alpha:(float)alpha;
 
-+ (UIColor *)hexColorWithInt:(int)hex alpha:(float)alpha;
-
 @end
 
 NS_ASSUME_NONNULL_END

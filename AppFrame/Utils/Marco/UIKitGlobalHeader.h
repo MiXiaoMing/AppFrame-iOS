@@ -29,7 +29,7 @@
 // 颜色转换
 #define kColorWith_RGBA(r, g, b, a) [UIColor colorWithRed:r/255. green:g/255. blue:b/255. alpha:a]
 #define kColorWith_RGB(r,g,b) kColorWith_RGBA(r,g,b,1.0f)
-#define kColorWith_RGBA_Hex(rgbValue, a) [UIColor hexColorWithInt:rgbValue alpha:1]
+#define kColorWith_RGBA_Hex(rgbValue, a) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:a]
 #define kColorWith_RGB_Hex(rgbValue) kColorWithHexRGBA(rgbValue, 1.0f)
 
 
