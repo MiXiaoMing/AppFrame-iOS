@@ -9,6 +9,9 @@
 #import "QMBaseViewController.h"
 #import "NSBundle+QMPod.h"
 #import "UIBarButtonItem+QMCreat.h"
+
+#define AppearBackImage @"AppearBackImage"
+
 @interface QMBaseViewController ()
 
 @end
@@ -53,9 +56,15 @@
  */
 - (void)creatLeftReturnBarButtonItem
 {
-    UIImage *image = [NSBundle getPodImageWith:@"AppFrame" fileName:@"NavigationBack" type:@"png"];
+    UIImage *image = [[NSUserDefaults standardUserDefaults] objectForKey:AppearBackImage];
+    if (image == nil) {
+        image = [NSBundle getPodImageWith:@"AppFrame" fileName:@"NavigationBack" type:@"png"];
+    }
     
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickLeftBarButtonItem) image:image itemSpaces:QMBarItemSpaceMake(17, 17)];
 }
-
++ (void)setAppearBackImage:(UIImage *)image
+{
+    [[NSUserDefaults standardUserDefaults] setObject:image forKey:AppearBackImage];
+}
 @end

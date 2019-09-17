@@ -22,7 +22,7 @@
 
 #define HasString(str,eky)([str rangeOfString:key].location!=NSNotFound)
 
-#define ValidDict(f)(f!=nil && [f isKindOfClass:[NSDictionary class]] && dic.allKeys.count > 0)
+#define ValidDict(f)(f!=nil && [f isKindOfClass:[NSDictionary class]] && f.allKeys.count > 0)
 
 #define ValidArray(f)(f!=nil && [f isKindOfClass:[NSArray class]]&&[f count]>0)
 
