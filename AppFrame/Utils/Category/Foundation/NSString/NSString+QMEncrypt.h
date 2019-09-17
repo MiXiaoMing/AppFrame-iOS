@@ -24,5 +24,16 @@
  */
 - (NSString *)decodeWithBase64;
 
-
+/**
+ AES128 加密
+ 
+ @param key 秘钥
+ */
+- (NSString *)encryptWithAES128_Key:(NSString *)key keyIv:(NSString *)keyIv;
+/**
+ AES128 解密
+ 
+ @param key 秘钥
+ */
+- (NSString *)decryptWithAES128_Key:(NSString *)key keyIv:(NSString *)keyIv;
 @end
