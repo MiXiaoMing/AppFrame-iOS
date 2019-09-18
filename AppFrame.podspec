@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AppFrame'
-  s.version          = '0.3.5'
+  s.version          = '0.3.6'
   s.summary          = 'AppFrame'
   s.homepage         = 'https://github.com/MiXiaoMing'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -213,7 +213,7 @@ Pod::Spec.new do |s|
     'AppFrame' => ['AppFrame/Resource/*']
   }
 
-  s.frameworks = 'UIKit','Foundation','CoreGraphics'
+  s.frameworks = 'UIKit','Foundation','CoreGraphics','CommonCrypto'
   s.dependency 'AFNetworking', '~> 3.2.1'
   s.dependency 'MBProgressHUD', '~> 1.1.0'
 end

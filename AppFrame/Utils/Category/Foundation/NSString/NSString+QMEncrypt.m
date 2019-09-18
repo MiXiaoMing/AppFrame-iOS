@@ -9,6 +9,7 @@
 #import "NSString+QMEncrypt.h"
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonCryptor.h>
+#import <CommonCrypto/CommonCrypto.h>
 
 @implementation NSString (QMEncrypt)
 
@@ -28,7 +29,39 @@
     
     return digest;
 }
-
+- (NSString *)encryptUseHMACMD5WithHmacKey:(NSString *)key
+{
+    //第1步------ MD5 ------
+    const char *cStr = [self UTF8String];
+    unsigned char result[16];
+    CC_MD5( cStr, (unsigned int) strlen(cStr), result);
+    
+    //第2步------ hmac ------
+    
+    const char *cKey  = [key cStringUsingEncoding:NSUTF8StringEncoding];
+    
+    char cHMAC[CC_MD5_DIGEST_LENGTH];
+    
+    CCHmac(kCCHmacAlgMD5, cKey, strlen(cKey), result, sizeof(result), cHMAC);
+    
+    //第3步------ hexstring ------
+    //下面是Byte 转换为16进制。
+    NSString *hexStr = @"";
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+    {
+        NSString *newHexStr = [NSString stringWithFormat:@"%x", cHMAC[i]&0xff];//16进制数
+        if([newHexStr length]==1)
+        {
+            hexStr = [NSString stringWithFormat:@"%@0%@",hexStr,newHexStr];
+        }
+        else
+        {
+            hexStr = [NSString stringWithFormat:@"%@%@",hexStr,newHexStr];
+        }
+    }
+    
+    return hexStr;
+}
 - (NSString *)encodeWithBase64
 {
     NSData *nsdata = [self dataUsingEncoding:NSUTF8StringEncoding];

@@ -16,6 +16,11 @@
 - (NSString *)MD5Encrypt;
 
 /**
+ HMAC-MD5加密
+ */
+- (NSString *)encryptUseHMACMD5WithHmacKey:(NSString *)key;
+
+/**
  base64编码
  */
 - (NSString *)encodeWithBase64;
