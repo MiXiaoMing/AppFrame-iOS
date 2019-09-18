@@ -67,4 +67,9 @@
 {
     [[NSUserDefaults standardUserDefaults] setObject:image forKey:AppearBackImage];
 }
+
+- (void)setEmptyViewInitialState
+{
+    
+}
 @end

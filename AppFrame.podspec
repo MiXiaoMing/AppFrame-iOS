@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AppFrame'
-  s.version          = '0.3.4'
+  s.version          = '0.3.5'
   s.summary          = 'AppFrame'
   s.homepage         = 'https://github.com/MiXiaoMing'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -86,6 +86,10 @@ Pod::Spec.new do |s|
       end
 
       sss.subspec 'UIKit' do |ssss|
+        ssss.subspec 'UIWindow' do |sssss|
+          sssss.source_files = 'AppFrame/Utils/Category/UIKit/UIWindow/*.{h,m}'
+          sssss.public_header_files = 'AppFrame/Utils/Category/UIKit/UIWindow/*.h'
+        end
         ssss.subspec 'UIColor' do |sssss|
           sssss.source_files = 'AppFrame/Utils/Category/UIKit/UIColor/*.{h,m}'
           sssss.public_header_files = 'AppFrame/Utils/Category/UIKit/UIColor/*.h'

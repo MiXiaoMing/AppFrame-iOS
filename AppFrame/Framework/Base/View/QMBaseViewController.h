@@ -28,10 +28,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setStatusBarBackgroundColor:(UIColor *)color;
 
 /**
- 设置返回按钮图片
+ 设置全局返回按钮图片
  */
 + (void)setAppearBackImage:(UIImage *)image;
 
+/** 初始化空白页状态,子类复写*/
+- (void)setEmptyViewInitialState;
 @end
 
 NS_ASSUME_NONNULL_END
