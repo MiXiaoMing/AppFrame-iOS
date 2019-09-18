@@ -25,7 +25,6 @@
 #import "UILabel+QMTapAction.h"
 #import "UIWindow+QM.h"
 
-
 // Foundation-Category
 #import "NSDictionary+QM.h"
 #import "NSDictionary+QMBlocksKit.h"

@@ -213,7 +213,7 @@ Pod::Spec.new do |s|
     'AppFrame' => ['AppFrame/Resource/*']
   }
 
-  s.frameworks = 'UIKit','Foundation','CoreGraphics','CommonCrypto'
+  s.frameworks = 'UIKit','Foundation','CoreGraphics'
   s.dependency 'AFNetworking', '~> 3.2.1'
   s.dependency 'MBProgressHUD', '~> 1.1.0'
 end
