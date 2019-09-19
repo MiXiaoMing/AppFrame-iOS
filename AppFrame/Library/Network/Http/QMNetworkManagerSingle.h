@@ -36,10 +36,6 @@
 - (void)cancleAllRequest;
 
 /**
- 检查网络状态
- */
-- (void)checkNetworkStatus;
-/**
  取消请求
  
  @param url url
