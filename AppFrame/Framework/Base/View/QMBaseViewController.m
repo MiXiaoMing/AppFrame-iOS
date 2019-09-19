@@ -76,4 +76,16 @@ static UIImage *leftBackImage;
 {
     
 }
+
+- (void)setNavigationBarTitleColor:(nullable UIColor *)color titleFont:(nullable UIFont *)titleFont
+{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    if (color != nil) {
+        [dic setObject:color forKey:NSForegroundColorAttributeName];
+    }
+    if (titleFont != nil) {
+        [dic setObject:titleFont forKey:NSFontAttributeName];
+    }
+    [self.navigationController.navigationBar setTitleTextAttributes:dic];
+}
 @end

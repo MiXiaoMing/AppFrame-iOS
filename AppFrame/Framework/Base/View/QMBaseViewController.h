@@ -34,6 +34,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 /** 初始化空白页状态,子类复写*/
 - (void)setEmptyViewInitialState;
+
+/**
+ 设置标题颜色和字体
+ */
+- (void)setNavigationBarTitleColor:(nullable UIColor *)color titleFont:(nullable UIFont *)titleFont;
 @end
 
 NS_ASSUME_NONNULL_END
