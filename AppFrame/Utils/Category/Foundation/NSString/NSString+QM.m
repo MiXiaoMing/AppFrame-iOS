@@ -162,4 +162,22 @@
     return decodedStr;
 }
 
+- (id)jsonStringToJsonObject
+{
+    if (self.length == 0) {
+        return nil;
+    }
+    
+    NSData *jsonData = [self dataUsingEncoding:NSUTF8StringEncoding];
+    NSError *err;
+    id json = [NSJSONSerialization JSONObjectWithData:jsonData
+                                              options:NSJSONReadingMutableContainers
+                                                error:&err];
+    if(err)
+    {
+        NSLog(@"json解析失败：%@",err);
+        return nil;
+    }
+    return json;
+}
 @end

@@ -69,5 +69,8 @@
  */
 - (NSString *)decode;
 
-
+/**
+ 字符串转json对象
+ */
+- (id)jsonStringToJsonObject;
 @end
