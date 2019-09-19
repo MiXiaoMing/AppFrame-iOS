@@ -12,7 +12,7 @@
 @interface QMNetworkManagerSingle ()
 
 @property (nonatomic, strong) AFHTTPSessionManager *httpSessionManager;
-@property (nonatomic, assign) NetworkStatus  networkStatus;
+@property (nonatomic, assign) QMNetworkStatus  networkStatus;
 
 @property (nonatomic, strong) NSDictionary     *headers;
 @property (nonatomic, strong) NSMutableArray   *requestTasksPool;
@@ -81,26 +81,26 @@ static dispatch_once_t onceInitToken;
     return [AFNetworkReachabilityManager sharedManager].reachableViaWiFi;
 }
 
-+ (void)networkStatusWithBlock:(NetworkStatusBlock)networkStatus
++ (void)networkStatusWithBlock:(QMNetworkStatusBlock)networkStatus
 {
     [[AFNetworkReachabilityManager sharedManager] startMonitoring];
     [[AFNetworkReachabilityManager sharedManager] setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         switch (status) {
             case AFNetworkReachabilityStatusUnknown:
                 
-                networkStatus ? networkStatus(NetworkStatusUnknown) : nil;
+                networkStatus ? networkStatus(QMNetworkStatusUnknown) : nil;
                 break;
             case AFNetworkReachabilityStatusNotReachable:
                 
-                networkStatus ? networkStatus(NetworkStatusNotReachable) : nil;
+                networkStatus ? networkStatus(QMNetworkStatusNotReachable) : nil;
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN:
                 
-                networkStatus ? networkStatus(NetworkStatusReachableViaWWAN) : nil;
+                networkStatus ? networkStatus(QMNetworkStatusReachableViaWWAN) : nil;
                 break;
             case AFNetworkReachabilityStatusReachableViaWiFi:
                 
-                networkStatus ? networkStatus(NetworkStatusReachableViaWiFi) : nil;
+                networkStatus ? networkStatus(QMNetworkStatusReachableViaWiFi) : nil;
                 break;
         }
     }];
@@ -194,7 +194,7 @@ static dispatch_once_t onceInitToken;
 {
     __block NSURLSessionTask *session = nil;
     
-    if (self.networkStatus == NetworkStatusNotReachable) {
+    if (self.networkStatus == QMNetworkStatusNotReachable) {
         if (failBlock) failBlock(ERROR);
         return session;
     }
@@ -247,7 +247,7 @@ static dispatch_once_t onceInitToken;
 {
     __block NSURLSessionTask *session = nil;
     
-    if (self.networkStatus == NetworkStatusNotReachable) {
+    if (self.networkStatus == QMNetworkStatusNotReachable) {
         if (failBlock) failBlock(ERROR);
         return session;
     }
@@ -302,7 +302,7 @@ static dispatch_once_t onceInitToken;
 {
     __block NSURLSessionTask *session = nil;
     
-    if (self.networkStatus == NetworkStatusNotReachable) {
+    if (self.networkStatus == QMNetworkStatusNotReachable) {
         if (failBlock) failBlock(ERROR);
         return session;
     }
@@ -377,7 +377,7 @@ static dispatch_once_t onceInitToken;
 {
     __block NSURLSessionTask *session = nil;
     
-    if (self.networkStatus == NetworkStatusNotReachable) {
+    if (self.networkStatus == QMNetworkStatusNotReachable) {
         if (failure) failure(ERROR);
         return session;
     }
@@ -420,7 +420,6 @@ static dispatch_once_t onceInitToken;
     return session;
 }
 
-#pragma mark - private method
 // 检查网络
 - (void)checkNetworkStatus {
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
@@ -431,19 +430,19 @@ static dispatch_once_t onceInitToken;
         
         switch (status) {
             case AFNetworkReachabilityStatusNotReachable:
-                self.networkStatus = NetworkStatusNotReachable;
+                self.networkStatus = QMNetworkStatusNotReachable;
                 break;
             case AFNetworkReachabilityStatusUnknown:
-                self.networkStatus = NetworkStatusUnknown;
+                self.networkStatus = QMNetworkStatusUnknown;
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN:
-                self.networkStatus = NetworkStatusReachableViaWWAN;
+                self.networkStatus = QMNetworkStatusReachableViaWWAN;
                 break;
             case AFNetworkReachabilityStatusReachableViaWiFi:
-                self.networkStatus = NetworkStatusReachableViaWiFi;
+                self.networkStatus = QMNetworkStatusReachableViaWiFi;
                 break;
             default:
-                self.networkStatus = NetworkStatusUnknown;
+                self.networkStatus = QMNetworkStatusUnknown;
                 break;
         }
     }];

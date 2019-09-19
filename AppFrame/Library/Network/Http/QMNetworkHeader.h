@@ -9,11 +9,11 @@
 /**
  网络状态
  */
-typedef NS_ENUM(NSInteger, NetworkStatus) {
-    NetworkStatusUnknown             = 1 << 0,
-    NetworkStatusNotReachable        = 1 << 1,
-    NetworkStatusReachableViaWWAN    = 1 << 2,
-    NetworkStatusReachableViaWiFi    = 1 << 3
+typedef NS_ENUM(NSInteger, QMNetworkStatus) {
+    QMNetworkStatusUnknown             = 1 << 0,
+    QMNetworkStatusNotReachable        = 1 << 1,
+    QMNetworkStatusReachableViaWWAN    = 1 << 2,
+    QMNetworkStatusReachableViaWiFi    = 1 << 3
 };
 
 typedef void(^ResponseSuccessBlock)(id response);
@@ -30,7 +30,7 @@ typedef void(^DownloadSuccessBlock)(NSString *url);
 typedef void(^UploadProgressBlock)(int64_t bytesWritten,
                                      int64_t totalBytes);
 
-typedef void(^NetworkStatusBlock)(NetworkStatus status);
+typedef void(^QMNetworkStatusBlock)(QMNetworkStatus status);
 
 typedef DownloadProgress GetProgress;
 

@@ -28,12 +28,17 @@
 /**
  实时获取网络状态,通过Block回调实时获取(此方法可多次调用)
  */
-+ (void)networkStatusWithBlock:(NetworkStatusBlock)networkStatus;
++ (void)networkStatusWithBlock:(QMNetworkStatusBlock)networkStatus;
 
 /**
  取消所有请求
  */
 - (void)cancleAllRequest;
+
+/**
+ 检查网络状态
+ */
+- (void)checkNetworkStatus;
 /**
  取消请求
  
