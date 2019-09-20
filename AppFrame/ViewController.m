@@ -36,11 +36,14 @@
 //        }];
 //    });
     
-    NSLog(@"--------%ld",IsPhoneX);
+//    NSLog(@"--------%ld",IsPhoneX);
     
 //    UIColor *color = [UIColor hexColorWithInt:0xf9f1f2 alpha:1];
 //    self.view.backgroundColor = color;
 //    NSLog(@"%@",color);
+    
+    UIImage *image = [UIImage imageNamed:@"NavigationBack" inBundle:[NSBundle mainBundle] compatibleWithTraitCollection:nil];
+    DLog(@"");
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

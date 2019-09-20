@@ -55,8 +55,6 @@
 
 + (UIImage *)getPodImageWith:(nullable NSString *)podName fileName:(NSString *)fileName type:(NSString *)type
 {
-    NSInteger scale = [UIScreen mainScreen].scale;
-    NSString *imageName = [NSString stringWithFormat:@"%@@%zdx.%@",fileName,scale,type];
     NSBundle * pod_bundle =[self bundleWithPodName:podName];
     if (!pod_bundle) {
         return nil;
@@ -64,7 +62,7 @@
     if (!pod_bundle.loaded) {
         [pod_bundle load];
     }
-    UIImage *image = [UIImage imageNamed:imageName inBundle:pod_bundle compatibleWithTraitCollection:nil];
+    UIImage *image = [UIImage imageNamed:fileName inBundle:pod_bundle compatibleWithTraitCollection:nil];
     return image;
 }
 @end
