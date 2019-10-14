@@ -6,6 +6,7 @@ target 'AppFrame' do
   # use_frameworks!
    pod 'AFNetworking', '~> 3.2.1'
    pod 'MBProgressHUD', '~> 1.1.0'
+   pod 'DZNEmptyDataSet', '~> 1.8.1'
 
 
   # Pods for AppFrame

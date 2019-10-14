@@ -16,7 +16,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIImage *barImg = [UIImage squareImageWithColor:[UIColor whiteColor] targetSize:CGSizeMake(500, 88.)];
+//    UIImage *barImg = [UIImage squareImageWithColor:[UIColor whiteColor] targetSize:CGSizeMake(500, 88.)];
+    UIImage *barImg = [UIImage squareImageWithColor:[UIColor redColor] targetSize:CGSizeMake(500, 88.)];
     [self.navigationBar setBackgroundImage:barImg forBarMetrics:UIBarMetricsDefault];
     [self.navigationBar setShadowImage:[UIImage squareImageWithColor:[UIColor colorWithRed:231/255. green:231/255. blue:231/255. alpha:1] targetSize:CGSizeMake(500, 1)]];
 }

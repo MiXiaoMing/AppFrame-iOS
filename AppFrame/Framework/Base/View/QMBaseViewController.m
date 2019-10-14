@@ -15,15 +15,23 @@ static UIImage *leftBackImage;
 @interface QMBaseViewController ()
 
 @property (nonatomic,strong) UIImage *leftBackImage;
+@property (nonatomic, assign) BOOL isNeedUpdate;
 
 @end
 
 @implementation QMBaseViewController
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    if (self.isNeedUpdate) {
+        [self.view setNeedsLayout];
+    }
+}
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     [self.view endEditing:YES];
+    self.isNeedUpdate=YES;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -32,6 +40,7 @@ static UIImage *leftBackImage;
     if (self.navigationController.viewControllers.count != 1) {
         [self creatLeftReturnBarButtonItem];
     }
+    self.isNeedUpdate=YES;
 }
 /**
  返回按钮点击
@@ -64,6 +73,7 @@ static UIImage *leftBackImage;
     }else
     {
         image = [NSBundle getPodImageWith:@"AppFrame" fileName:@"NavigationBack" type:@"png"];
+//        image = [NSBundle getPodImageWith:nil fileName:@"NavigationBack" type:@"png"];
     }
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickLeftBarButtonItem) image:image itemSpaces:QMBarItemSpaceMake(15, 15)];
 }
@@ -87,5 +97,42 @@ static UIImage *leftBackImage;
         [dic setObject:titleFont forKey:NSFontAttributeName];
     }
     [self.navigationController.navigationBar setTitleTextAttributes:dic];
+}
+-(void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    [self updateNavLayout];
+}
+- (void)updateNavLayout{
+    if (@available(iOS 11.0,*)) {
+        if (!self.isNeedUpdate || self.navigationController == nil) {
+            return;
+        }
+        self.isNeedUpdate=NO;
+        
+        for (UIView *subview in self.navigationController.navigationBar.subviews) {
+            if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
+                //可修正iOS13之后的偏移
+                NSArray *contentViewConstraint = subview.constraints;
+                for (NSLayoutConstraint * constant in contentViewConstraint) {
+                    if (fabs(constant.constant) <= 20) {
+                        constant.constant=0;
+                    }
+                }
+                if (subview.subviews.count > 0) {
+                    for (UIView *stackView in subview.subviews) {
+                        if ([NSStringFromClass(stackView.class) containsString:@"StackView"]) {
+                            NSArray *stackViewConstraint = stackView.constraints;
+                            for (NSLayoutConstraint * constant in stackViewConstraint) {
+                                if (fabs(constant.constant) <= 8) {
+                                    constant.constant=0;
+                                }
+                            }
+                        }
+                    }
+                }
+                break;
+            }
+        }
+    }
 }
 @end

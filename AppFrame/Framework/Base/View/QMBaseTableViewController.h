@@ -20,6 +20,10 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic,strong) UITableView *groupTableview;
 /** 是否显示分割线 */
 @property (nonatomic,assign) BOOL isShowSeparator;
+/**
+ 显示空白页
+ */
+@property (nonatomic, assign) BOOL showEmptyPlaceView;
 
 @end
 

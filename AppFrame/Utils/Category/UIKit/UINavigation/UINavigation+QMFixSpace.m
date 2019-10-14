@@ -6,7 +6,7 @@
 #import "UINavigation+QMFixSpace.h"
 #import "NSObject+QM.h"
 #import <Availability.h>
-
+#import <objc/runtime.h>
 #define QM_defaultFixSpace 0
 
 static BOOL QM_disableFixSpace = NO;
@@ -124,13 +124,18 @@ static NSInteger QM_tempBehavior = 0;
     
     if (@available(iOS 11.0,*)) {
         if (!QM_disableFixSpace) {
-            self.layoutMargins = UIEdgeInsetsZero;
-            CGFloat space = QM_defaultFixSpace;
-            for (UIView *subview in self.subviews) {
-                if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
-                    //可修正iOS11之后的偏移
-                    subview.layoutMargins = UIEdgeInsetsMake(0, space, 0, space);
-                    break;
+            if (@available(iOS 13.0,*)) {
+                
+            }else
+            {
+                self.layoutMargins = UIEdgeInsetsZero;
+                CGFloat space = QM_defaultFixSpace;
+                for (UIView *subview in self.subviews) {
+                    if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
+                        //可修正iOS11之后的偏移
+                        subview.layoutMargins = UIEdgeInsetsMake(0, space, 0, space);
+                        break;
+                    }
                 }
             }
         }
