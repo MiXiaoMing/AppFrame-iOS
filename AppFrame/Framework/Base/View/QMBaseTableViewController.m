@@ -64,7 +64,7 @@ DZNEmptyDataSetDelegate>
 #pragma mark - DZNEmptyDataSetSource DZNEmptyDataSetDelegate
 //空白页图片
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    UIImage *image = [NSBundle getPodImageWith:@"AppFrame" fileName:@"NavigationBack" type:@"png"];
+    UIImage *image = [NSBundle getPodImageWith:@"AppFrame" fileName:@"EmptyPlaceholderView" type:@"png"];
 //    UIImage *image = [NSBundle getPodImageWith:@"" fileName:@"EmptyPlaceholderView" type:@"png"];
     return image;
 }

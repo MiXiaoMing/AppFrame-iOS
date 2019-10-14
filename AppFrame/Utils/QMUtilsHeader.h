@@ -41,6 +41,7 @@
 #import "NSSet+QMBlocksKit.h"
 #import "NSObject+QM.h"
 #import "NSDate+QM.h"
+#import "NSDate+QMConversion.h"
 #import "NSNumber+QM.h"
 #import "NSBundle+QMPod.h"
 
