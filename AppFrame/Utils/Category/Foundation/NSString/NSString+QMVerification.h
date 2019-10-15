@@ -61,5 +61,7 @@
  字符串是否包含表情
  */
 - (BOOL)isContainsEmoji;
+//正则判断数字
+- (BOOL)isNumber:(NSString *)number;
 
 @end

@@ -175,4 +175,14 @@
                           }];
     return returnValue;
 }
+
+- (BOOL)isNumber:(NSString *)number{
+    
+    if (self.length == 0) {
+        return NO;
+    }
+    NSString *regex = @"^[0-9]*$";
+    NSPredicate *identityCardPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+    return [identityCardPredicate evaluateWithObject:self];
+}
 @end
