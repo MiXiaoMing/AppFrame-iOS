@@ -62,6 +62,6 @@
  */
 - (BOOL)isContainsEmoji;
 //正则判断数字
-- (BOOL)isNumber:(NSString *)number;
+- (BOOL)isNumber;
 
 @end

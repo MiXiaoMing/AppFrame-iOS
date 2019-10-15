@@ -5,6 +5,7 @@
 
 #import "NSString+QMAttribute.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "NSString+QMVerification.h"
 
 @implementation NSString (QMAttribute)
 
@@ -71,8 +72,7 @@
         for (NSInteger index = 0; index < [labelText length]; index++) {
             NSString *str = [labelText substringWithRange:NSMakeRange(index, 1)];
             
-            NSString * Number = @"^[0-9]*$";
-            if ([[str isMatchedByRegex:Number]] || [str isEqualToString:@"."]) {
+            if ([str isNumber] || [str isEqualToString:@"."]) {
                 range0 = NSMakeRange(index,1);
             }
             if (range0.length > 0) {

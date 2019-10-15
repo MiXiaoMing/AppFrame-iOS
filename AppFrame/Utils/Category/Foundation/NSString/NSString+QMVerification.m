@@ -176,8 +176,8 @@
     return returnValue;
 }
 
-- (BOOL)isNumber:(NSString *)number{
-    
+- (BOOL)isNumber
+{
     if (self.length == 0) {
         return NO;
     }
