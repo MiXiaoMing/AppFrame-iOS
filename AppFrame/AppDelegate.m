@@ -23,7 +23,8 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    QMBaseNavigationController *navi = [[QMBaseNavigationController alloc] initWithRootViewController:[[ViewController alloc] init]];
+    ViewController *vc = [[ViewController alloc] init];
+    QMBaseNavigationController *navi = [[QMBaseNavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navi;
     
     return YES;

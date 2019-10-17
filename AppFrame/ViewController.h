@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "QMBaseViewController.h"
-@interface ViewController : QMBaseViewController
 
+@interface ViewController : UIViewController
 
 @end
 

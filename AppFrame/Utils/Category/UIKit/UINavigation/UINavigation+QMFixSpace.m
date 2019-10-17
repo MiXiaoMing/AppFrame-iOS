@@ -45,12 +45,11 @@ static NSInteger QM_tempBehavior = 0;
     if ([self isKindOfClass:[UIImagePickerController class]]) {
         QM_tempDisableFixSpace = QM_disableFixSpace;
         QM_disableFixSpace = YES;
-#ifdef __IPHONE_11_0
+
         if (@available(iOS 11.0, *)) {
             QM_tempBehavior = [UIScrollView appearance].contentInsetAdjustmentBehavior;
             [UIScrollView appearance].contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentAutomatic;
         }
-#endif
     }
     [self QM_viewWillAppear:animated];
 }
@@ -58,54 +57,70 @@ static NSInteger QM_tempBehavior = 0;
 -(void)QM_viewWillDisappear:(BOOL)animated{
     if ([self isKindOfClass:[UIImagePickerController class]]) {
         QM_disableFixSpace = QM_tempDisableFixSpace;
-#ifdef __IPHONE_11_0
+
         if (@available(iOS 11.0, *)) {
             [UIScrollView appearance].contentInsetAdjustmentBehavior = QM_tempBehavior;
         }
-#endif
     }
     [self QM_viewWillDisappear:animated];
 }
 
 -(void)QM_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [self QM_pushViewController:viewController animated:animated];
-    if (!animated) {
-        [self.navigationBar layoutSubviews];
+    QM_disableFixSpace = ![self judgeNewControllerIsInFrame:viewController];
+    if (!animated || QM_disableFixSpace) {
+        [self.navigationBar setNeedsLayout];
     }
 }
 
 - (nullable UIViewController *)QM_popViewControllerAnimated:(BOOL)animated{
     UIViewController *vc = [self QM_popViewControllerAnimated:animated];
-    if (!animated) {
-        [self.navigationBar layoutSubviews];
+    QM_disableFixSpace = ![self judgeNewControllerIsInFrame:[self.viewControllers lastObject]];
+    if (!animated || QM_disableFixSpace) {
+        [self.navigationBar setNeedsLayout];
     }
     return vc;
 }
 
 - (nullable NSArray<__kindof UIViewController *> *)QM_popToViewController:(UIViewController *)viewController animated:(BOOL)animated{
     NSArray *vcs = [self QM_popToViewController:viewController animated:animated];
-    if (!animated) {
-        [self.navigationBar layoutSubviews];
+    QM_disableFixSpace = ![self judgeNewControllerIsInFrame:viewController];
+    if (!animated || QM_disableFixSpace) {
+        [self.navigationBar setNeedsLayout];
     }
     return vcs;
 }
 
 - (nullable NSArray<__kindof UIViewController *> *)QM_popToRootViewControllerAnimated:(BOOL)animated{
     NSArray *vcs = [self QM_popToRootViewControllerAnimated:animated];
-    if (!animated) {
-        [self.navigationBar layoutSubviews];
+    QM_disableFixSpace = ![self judgeNewControllerIsInFrame:[self.viewControllers lastObject]];
+    if (!animated || QM_disableFixSpace) {
+        [self.navigationBar setNeedsLayout];
     }
     return vcs;
 }
 
 - (void)QM_setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated NS_AVAILABLE_IOS(3_0){
     [self QM_setViewControllers:viewControllers animated:animated];
-    if (!animated) {
-        [self.navigationBar layoutSubviews];
+    QM_disableFixSpace = ![self judgeNewControllerIsInFrame:[viewControllers lastObject]];
+    if (!animated || QM_disableFixSpace) {
+        [self.navigationBar setNeedsLayout];
     }
 }
-
-
+// 判断是否属于组件
+- (BOOL)judgeNewControllerIsInFrame:(UIViewController *)viewController
+{
+    Class superClass = viewController.class;
+    BOOL flag = false;
+    while (![NSStringFromClass(superClass) isEqualToString:NSStringFromClass([UIViewController class])]) {
+        if ([NSStringFromClass(superClass) isEqualToString:@"QMBaseViewController"]) {
+            flag = true;
+            break;
+        }
+        superClass = [superClass superclass];
+    }
+    return flag;
+}
 
 @end
 
@@ -136,6 +151,16 @@ static NSInteger QM_tempBehavior = 0;
                         subview.layoutMargins = UIEdgeInsetsMake(0, space, 0, space);
                         break;
                     }
+                }
+            }
+        }else
+        {
+            self.layoutMargins = UIEdgeInsetsMake(0, 16, 0, 16);
+            for (UIView *subview in self.subviews) {
+                if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
+                    //可修正iOS11之后的偏移
+                    subview.layoutMargins = UIEdgeInsetsMake(0, 16, 0, 16);
+                    break;
                 }
             }
         }
