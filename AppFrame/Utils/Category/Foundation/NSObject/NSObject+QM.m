@@ -87,4 +87,16 @@
         method_exchangeImplementations(oriMethod, swizzledMethod);
     }
 }
+
+- (NSString*)analysisConvertToString{
+    if ([self isKindOfClass:[NSNull class]] || !self) {
+        return @"";
+    }else if([self isKindOfClass:[NSNumber class]]){
+        return [NSString stringWithFormat:@"%@", self];
+    }else if([[NSString stringWithFormat:@"%@",self] isEqualToString:@"null"]){
+        return @"";
+    }else{
+        return (NSString*)self;
+    }
+}
 @end

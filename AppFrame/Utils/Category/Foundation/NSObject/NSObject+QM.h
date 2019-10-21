@@ -30,4 +30,11 @@
  */
 + (void)swizzleClassInstanceMethodWithOriginSel:(SEL)oriSel swizzleSel:(SEL)swiSel;
 
+/**
+ *  将对象转换为字符串（用于解析容错，nsnull对象）
+ *
+ *  @return 字符串
+ */
+- (NSString*)analysisConvertToString;
+
 @end
