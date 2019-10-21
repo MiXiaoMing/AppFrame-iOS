@@ -63,5 +63,7 @@
 - (BOOL)isContainsEmoji;
 //正则判断数字
 - (BOOL)isNumber;
+//正整数+0
+- (BOOL)isCountNumber;
 
 @end

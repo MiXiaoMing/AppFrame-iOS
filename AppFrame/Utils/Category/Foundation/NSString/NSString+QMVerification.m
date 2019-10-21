@@ -185,4 +185,14 @@
     NSPredicate *identityCardPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
     return [identityCardPredicate evaluateWithObject:self];
 }
+
+- (BOOL)isCountNumber
+{
+    if (self.length == 0) {
+        return NO;
+    }
+    NSString *regex = @"^(0|[1-9][0-9]*)$";
+    NSPredicate *identityCardPredicate = [NSPredicate predicateWithFormat:@"SELF MATCHES %@",regex];
+    return [identityCardPredicate evaluateWithObject:self];
+}
 @end
