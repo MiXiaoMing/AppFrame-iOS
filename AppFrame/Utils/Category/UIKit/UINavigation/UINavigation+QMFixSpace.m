@@ -155,12 +155,17 @@ static NSInteger QM_tempBehavior = 0;
             }
         }else
         {
-            self.layoutMargins = UIEdgeInsetsMake(0, 16, 0, 16);
-            for (UIView *subview in self.subviews) {
-                if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
-                    //可修正iOS11之后的偏移
-                    subview.layoutMargins = UIEdgeInsetsMake(0, 16, 0, 16);
-                    break;
+            if (@available(iOS 13.0,*)) {
+                
+            }else
+            {
+                self.layoutMargins = UIEdgeInsetsMake(0, 16, 0, 16);
+                for (UIView *subview in self.subviews) {
+                    if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
+                        //可修正iOS11之后的偏移
+                        subview.layoutMargins = UIEdgeInsetsMake(0, 16, 0, 16);
+                        break;
+                    }
                 }
             }
         }
