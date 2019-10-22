@@ -56,6 +56,7 @@
 		004E869C22FD171E00E38C11 /* NSStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 004E869B22FD171E00E38C11 /* NSStringTests.m */; };
 		004E869E22FD46A500E38C11 /* NSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 004E869D22FD46A500E38C11 /* NSDateTests.m */; };
 		004E86A022FD589800E38C11 /* QMToolsManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 004E869F22FD589800E38C11 /* QMToolsManagerTests.m */; };
+		006B87BE235EAC5D00508C7A /* UIView+QMBlockKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B87BD235EAC5D00508C7A /* UIView+QMBlockKit.m */; };
 		007F9ACF2354181200ED8842 /* AppFrameResource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 007F9ACE2354181200ED8842 /* AppFrameResource.xcassets */; };
 		00869110234D717400344035 /* SecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0086910F234D717400344035 /* SecondVC.m */; };
 		00B11798235461DC003F6E3B /* NSDate+QMConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B11797235461DC003F6E3B /* NSDate+QMConversion.m */; };
@@ -199,6 +200,8 @@
 		004E869D22FD46A500E38C11 /* NSDateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSDateTests.m; sourceTree = "<group>"; };
 		004E869F22FD589800E38C11 /* QMToolsManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMToolsManagerTests.m; sourceTree = "<group>"; };
 		004E86A122FD592300E38C11 /* QMUtilsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMUtilsHeader.h; sourceTree = "<group>"; };
+		006B87BC235EAC5D00508C7A /* UIView+QMBlockKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+QMBlockKit.h"; sourceTree = "<group>"; };
+		006B87BD235EAC5D00508C7A /* UIView+QMBlockKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+QMBlockKit.m"; sourceTree = "<group>"; };
 		007F9ACE2354181200ED8842 /* AppFrameResource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppFrameResource.xcassets; sourceTree = "<group>"; };
 		0086910E234D717400344035 /* SecondVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondVC.h; sourceTree = "<group>"; };
 		0086910F234D717400344035 /* SecondVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondVC.m; sourceTree = "<group>"; };
@@ -342,6 +345,8 @@
 				0005702A22F419450014F679 /* UIView+QMDraw.m */,
 				0005702622F419450014F679 /* UIView+QMFrame.h */,
 				0005702922F419450014F679 /* UIView+QMFrame.m */,
+				006B87BC235EAC5D00508C7A /* UIView+QMBlockKit.h */,
+				006B87BD235EAC5D00508C7A /* UIView+QMBlockKit.m */,
 			);
 			path = UIView;
 			sourceTree = "<group>";
@@ -1075,6 +1080,7 @@
 				0019922D2318C73100F1DC1F /* CLLocation+QMCalculate.m in Sources */,
 				001992272318C43000F1DC1F /* QMCountDownButton.m in Sources */,
 				C70C5D19230EBA5500248F7B /* UIBarButtonItem+QMCreat.m in Sources */,
+				006B87BE235EAC5D00508C7A /* UIView+QMBlockKit.m in Sources */,
 				0019916E2314F4D800F1DC1F /* UINavigationController+QMFullScreen.m in Sources */,
 				0005706822F419450014F679 /* NSArray+QMSort.m in Sources */,
 				0005706722F419450014F679 /* NSMutableString+QM.m in Sources */,

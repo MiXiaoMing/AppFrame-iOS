@@ -17,6 +17,7 @@
 #import "UIView+QM.h"
 #import "UIView+QMDraw.h"
 #import "UIView+QMFrame.h"
+#import "UIView+QMBlockKit.h"
 #import "UIDevice+QM.h"
 #import "UIBarButtonItem+QMCreat.h"
 #import "UIButton+QMImgTextPosition.h"
