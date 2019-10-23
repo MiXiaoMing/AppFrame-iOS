@@ -9,6 +9,21 @@
 
 #define ERROR [NSError errorWithDomain:@"Networking.ErrorDomain" code:-1009 userInfo:@{ NSLocalizedDescriptionKey:ERROR_IMFORMATION}]
 
+@implementation NSURLRequest (Decide)
+
+- (BOOL)isTheSameURLRequest:(NSURLRequest *)request {
+    if ([self.HTTPMethod isEqualToString:request.HTTPMethod]) {
+        if ([self.URL.absoluteString isEqualToString:request.URL.absoluteString]) {
+            if ([self.HTTPMethod isEqualToString:@"GET"]||[self.HTTPBody isEqualToData:request.HTTPBody]) {
+                return YES;
+            }
+        }
+    }
+    return NO;
+}
+
+@end
+
 @interface QMNetworkManagerSingle ()
 
 @property (nonatomic, strong) AFHTTPSessionManager *httpSessionManager;
@@ -428,7 +443,7 @@ static dispatch_once_t onceInitToken;
 - (BOOL)haveSameRequestInTasksPool:(NSURLSessionTask *)task {
     __block BOOL isSame = NO;
     [[self allTasks] enumerateObjectsUsingBlock:^(NSURLSessionTask *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([task.originalRequest isTheSameRequest:obj.originalRequest]) {
+        if ([task.originalRequest isTheSameURLRequest:obj.originalRequest]) {
             isSame  = YES;
             *stop = YES;
         }
@@ -440,7 +455,7 @@ static dispatch_once_t onceInitToken;
     __block NSURLSessionTask *oldTask = nil;
     
     [[self allTasks] enumerateObjectsUsingBlock:^(NSURLSessionTask *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([task.originalRequest isTheSameRequest:obj.originalRequest]) {
+        if ([task.originalRequest isTheSameURLRequest:obj.originalRequest]) {
             if (obj.state == NSURLSessionTaskStateRunning) {
                 [obj cancel];
                 oldTask = obj;

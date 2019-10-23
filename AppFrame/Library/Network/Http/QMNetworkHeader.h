@@ -38,25 +38,5 @@ typedef DownloadProgress PostProgress;
 
 typedef ResponseFailBlock DownloadFailBlock;
 
-@interface NSURLRequest (Decide)
-
-- (BOOL)isTheSameRequest:(NSURLRequest *)request;
-
-@end
-
-@implementation NSURLRequest (Decide)
-
-- (BOOL)isTheSameRequest:(NSURLRequest *)request {
-    if ([self.HTTPMethod isEqualToString:request.HTTPMethod]) {
-        if ([self.URL.absoluteString isEqualToString:request.URL.absoluteString]) {
-            if ([self.HTTPMethod isEqualToString:@"GET"]||[self.HTTPBody isEqualToData:request.HTTPBody]) {
-                return YES;
-            }
-        }
-    }
-    return NO;
-}
-
-@end
 
 #endif /* NetworkHeader_h */

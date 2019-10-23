@@ -7,6 +7,11 @@
 #import "QMNetworkHeader.h"
 #import <UIKit/UIKit.h>
 
+@interface NSURLRequest (Decide)
+
+- (BOOL)isTheSameURLRequest:(NSURLRequest *)request;
+
+@end
 
 @interface QMNetworkManagerSingle : NSObject
 
