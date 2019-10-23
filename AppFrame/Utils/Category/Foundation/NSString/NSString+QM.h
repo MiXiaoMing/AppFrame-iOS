@@ -73,4 +73,6 @@
  字符串转json对象
  */
 - (id)jsonStringToJsonObject;
+
++ (NSString *)nullToString:(id)string;
 @end
