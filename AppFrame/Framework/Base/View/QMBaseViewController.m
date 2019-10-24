@@ -103,7 +103,7 @@ static UIImage *leftBackImage;
     [self updateNavLayout];
 }
 - (void)updateNavLayout{
-    if (@available(iOS 11.0,*)) {
+    if (@available(iOS 13.0,*)) {
         if (!self.isNeedUpdate || self.navigationController == nil) {
             return;
         }

@@ -46,7 +46,7 @@
 
 - (void)clickLeftBarButtonItem
 {
-    [self.navigationController popToRootViewControllerAnimated:true];
+    [self.navigationController popViewControllerAnimated:true];
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

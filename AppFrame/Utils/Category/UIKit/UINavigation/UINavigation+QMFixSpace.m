@@ -11,7 +11,11 @@
 
 static BOOL QM_disableFixSpace = NO;
 static BOOL QM_tempDisableFixSpace = NO;
+static BOOL QM_isCurrentFrame = true;
 static NSInteger QM_tempBehavior = 0;
+
+//#define QM_systemDefaultMargin ([UIScreen mainScreen].bounds.size.width <= 375 ? 16:20)
+#define QM_systemDefaultMargin 16
 
 @implementation UINavigationController (QMFixSpace)
 
@@ -67,45 +71,35 @@ static NSInteger QM_tempBehavior = 0;
 
 -(void)QM_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [self QM_pushViewController:viewController animated:animated];
-    QM_disableFixSpace = ![self judgeNewControllerIsInFrame:viewController];
-    if (!animated || QM_disableFixSpace) {
-        [self.navigationBar setNeedsLayout];
-    }
+    [self judgeNewControllerIsInFrame:viewController];
+    [self.navigationBar layoutSubviews];
 }
 
 - (nullable UIViewController *)QM_popViewControllerAnimated:(BOOL)animated{
     UIViewController *vc = [self QM_popViewControllerAnimated:animated];
-    QM_disableFixSpace = ![self judgeNewControllerIsInFrame:[self.viewControllers lastObject]];
-    if (!animated || QM_disableFixSpace) {
-        [self.navigationBar setNeedsLayout];
-    }
+    [self judgeNewControllerIsInFrame:[self.viewControllers lastObject]];
+    [self.navigationBar layoutSubviews];
     return vc;
 }
 
 - (nullable NSArray<__kindof UIViewController *> *)QM_popToViewController:(UIViewController *)viewController animated:(BOOL)animated{
     NSArray *vcs = [self QM_popToViewController:viewController animated:animated];
-    QM_disableFixSpace = ![self judgeNewControllerIsInFrame:viewController];
-    if (!animated || QM_disableFixSpace) {
-        [self.navigationBar setNeedsLayout];
-    }
+    [self judgeNewControllerIsInFrame:viewController];
+    [self.navigationBar layoutSubviews];
     return vcs;
 }
 
 - (nullable NSArray<__kindof UIViewController *> *)QM_popToRootViewControllerAnimated:(BOOL)animated{
     NSArray *vcs = [self QM_popToRootViewControllerAnimated:animated];
-    QM_disableFixSpace = ![self judgeNewControllerIsInFrame:[self.viewControllers lastObject]];
-    if (!animated || QM_disableFixSpace) {
-        [self.navigationBar setNeedsLayout];
-    }
+    [self judgeNewControllerIsInFrame:[self.viewControllers lastObject]];
+    [self.navigationBar layoutSubviews];
     return vcs;
 }
 
 - (void)QM_setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated NS_AVAILABLE_IOS(3_0){
     [self QM_setViewControllers:viewControllers animated:animated];
-    QM_disableFixSpace = ![self judgeNewControllerIsInFrame:[viewControllers lastObject]];
-    if (!animated || QM_disableFixSpace) {
-        [self.navigationBar setNeedsLayout];
-    }
+    [self judgeNewControllerIsInFrame:[viewControllers lastObject]];
+    [self.navigationBar layoutSubviews];
 }
 // 判断是否属于组件
 - (BOOL)judgeNewControllerIsInFrame:(UIViewController *)viewController
@@ -119,6 +113,7 @@ static NSInteger QM_tempBehavior = 0;
         }
         superClass = [superClass superclass];
     }
+    QM_isCurrentFrame = flag;
     return flag;
 }
 
@@ -143,28 +138,24 @@ static NSInteger QM_tempBehavior = 0;
                 
             }else
             {
-                self.layoutMargins = UIEdgeInsetsZero;
-                CGFloat space = QM_defaultFixSpace;
-                for (UIView *subview in self.subviews) {
-                    if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
-                        //可修正iOS11之后的偏移
-                        subview.layoutMargins = UIEdgeInsetsMake(0, space, 0, space);
-                        break;
+                if (QM_isCurrentFrame) {
+                    self.layoutMargins = UIEdgeInsetsZero;
+                    CGFloat space = QM_defaultFixSpace;
+                    for (UIView *subview in self.subviews) {
+                        if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
+                            //可修正iOS11之后的偏移
+                            subview.layoutMargins = UIEdgeInsetsMake(0, space, 0, space);
+                            break;
+                        }
                     }
-                }
-            }
-        }else
-        {
-            if (@available(iOS 13.0,*)) {
-                
-            }else
-            {
-                self.layoutMargins = UIEdgeInsetsMake(0, 16, 0, 16);
-                for (UIView *subview in self.subviews) {
-                    if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
-                        //可修正iOS11之后的偏移
-                        subview.layoutMargins = UIEdgeInsetsMake(0, 16, 0, 16);
-                        break;
+                }else
+                {
+                    for (UIView *subview in self.subviews) {
+                        if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
+                            //可修正iOS11之后的偏移
+                            subview.layoutMargins = UIEdgeInsetsMake(0, QM_systemDefaultMargin, 0, QM_systemDefaultMargin);
+                            break;
+                        }
                     }
                 }
             }
@@ -198,7 +189,7 @@ static NSInteger QM_tempBehavior = 0;
     if (@available(iOS 11.0,*)) {
         [self QM_setLeftBarButtonItem:leftBarButtonItem];
     } else {
-        if (!QM_disableFixSpace && leftBarButtonItem) {
+        if (!QM_disableFixSpace && leftBarButtonItem && QM_isCurrentFrame) {
             //存在按钮且需要调节
             [self setLeftBarButtonItems:@[leftBarButtonItem]];
         } else {//不存在按钮,或者不需要调节
@@ -208,8 +199,9 @@ static NSInteger QM_tempBehavior = 0;
 }
 
 -(void)QM_setLeftBarButtonItems:(NSArray<UIBarButtonItem *> *)leftBarButtonItems {
+    
     if (leftBarButtonItems.count) {
-        NSMutableArray *items = [NSMutableArray arrayWithObject:[self fixedSpaceWithWidth:QM_disableFixSpace-20]];//可修正iOS11之前的偏移
+        NSMutableArray *items = [NSMutableArray arrayWithObject:[self fixedSpaceWithWidth:QM_disableFixSpace-QM_systemDefaultMargin]];//可修正iOS11之前的偏移
         [items addObjectsFromArray:leftBarButtonItems];
         [self QM_setLeftBarButtonItems:items];
     } else {
@@ -218,10 +210,11 @@ static NSInteger QM_tempBehavior = 0;
 }
 
 -(void)QM_setRightBarButtonItem:(UIBarButtonItem *)rightBarButtonItem{
+    
     if (@available(iOS 11.0,*)) {
         [self QM_setRightBarButtonItem:rightBarButtonItem];
     } else {
-        if (!QM_disableFixSpace && rightBarButtonItem) {
+        if (!QM_disableFixSpace && rightBarButtonItem && QM_isCurrentFrame) {
             [self setRightBarButtonItems:@[rightBarButtonItem]];
         } else {
             [self QM_setRightBarButtonItem:rightBarButtonItem];
@@ -231,7 +224,7 @@ static NSInteger QM_tempBehavior = 0;
 
 -(void)QM_setRightBarButtonItems:(NSArray<UIBarButtonItem *> *)rightBarButtonItems{
     if (rightBarButtonItems.count) {
-        NSMutableArray *items = [NSMutableArray arrayWithObject:[self fixedSpaceWithWidth:QM_defaultFixSpace-20]];
+        NSMutableArray *items = [NSMutableArray arrayWithObject:[self fixedSpaceWithWidth:QM_defaultFixSpace-QM_systemDefaultMargin]];
         [items addObjectsFromArray:rightBarButtonItems];
         [self QM_setRightBarButtonItems:items];
     } else {

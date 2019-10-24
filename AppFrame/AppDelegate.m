@@ -27,6 +27,9 @@
     QMBaseNavigationController *navi = [[QMBaseNavigationController alloc] initWithRootViewController:vc];
     self.window.rootViewController = navi;
     
+    
+    NSLog(@"-------------%@",[UIDevice currentDevice].systemVersion);
+    
     return YES;
 }
 
