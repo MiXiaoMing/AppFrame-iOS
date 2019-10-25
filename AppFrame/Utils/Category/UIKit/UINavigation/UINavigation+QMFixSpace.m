@@ -26,7 +26,7 @@ static NSInteger QM_tempBehavior = 0;
                                            swizzleSel:@selector(QM_viewWillAppear:)];
         [self swizzleClassInstanceMethodWithOriginSel:@selector(viewWillDisappear:)
                                            swizzleSel:@selector(QM_viewWillDisappear:)];
-        if (@available(iOS 11.0,*)) {
+//        if (@available(iOS 11.0,*)) {
             [self swizzleClassInstanceMethodWithOriginSel:@selector(pushViewController:animated:)
                                                swizzleSel:@selector(QM_pushViewController:animated:)];
             
@@ -41,7 +41,7 @@ static NSInteger QM_tempBehavior = 0;
             
             [self swizzleClassInstanceMethodWithOriginSel:@selector(setViewControllers:animated:)
                                                swizzleSel:@selector(QM_setViewControllers:animated:)];
-        }
+//        }
     });
 }
 

@@ -9,7 +9,7 @@
 #import "SecondVC.h"
 
 #import "AppFrame.h"
-
+#import "ThirdVC.h"
 @interface SecondVC ()
 
 @end
@@ -36,12 +36,6 @@
 
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickLeftBarButtonItem) image:image itemSpaces:QMBarItemSpaceMake(15, 15)];
     self.view.backgroundColor = [UIColor redColor];
-    
-    self.plainTableView.frame = self.view.bounds;
-    [self.view addSubview:self.plainTableView];
-    
-    self.showEmptyPlaceView = true;
-    [self.plainTableView reloadData];
 }
 
 - (void)clickLeftBarButtonItem
@@ -51,7 +45,8 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    
+    ThirdVC *vc = [[ThirdVC alloc] init];
+    [self.navigationController pushViewController:vc animated:true];
 }
 
 @end

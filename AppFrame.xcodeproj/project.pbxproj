@@ -60,6 +60,7 @@
 		007F9ACF2354181200ED8842 /* AppFrameResource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 007F9ACE2354181200ED8842 /* AppFrameResource.xcassets */; };
 		00869110234D717400344035 /* SecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0086910F234D717400344035 /* SecondVC.m */; };
 		00B11798235461DC003F6E3B /* NSDate+QMConversion.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B11797235461DC003F6E3B /* NSDate+QMConversion.m */; };
+		00B461A72362E08700431714 /* ThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B461A62362E08700431714 /* ThirdVC.m */; };
 		00CCD481231CF165006E660B /* NSBundle+QMPod.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCD480231CF165006E660B /* NSBundle+QMPod.m */; };
 		00EF3A552331C9BA00FBD27F /* UIWindow+QM.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EF3A542331C9BA00FBD27F /* UIWindow+QM.m */; };
 		00FFEC8E2338EF930091B0D6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 00FFEC8D2338EF920091B0D6 /* Podfile */; };
@@ -207,6 +208,8 @@
 		0086910F234D717400344035 /* SecondVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondVC.m; sourceTree = "<group>"; };
 		00B11796235461DC003F6E3B /* NSDate+QMConversion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDate+QMConversion.h"; sourceTree = "<group>"; };
 		00B11797235461DC003F6E3B /* NSDate+QMConversion.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDate+QMConversion.m"; sourceTree = "<group>"; };
+		00B461A52362E08700431714 /* ThirdVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThirdVC.h; sourceTree = "<group>"; };
+		00B461A62362E08700431714 /* ThirdVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThirdVC.m; sourceTree = "<group>"; };
 		00CCD47F231CF164006E660B /* NSBundle+QMPod.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+QMPod.h"; sourceTree = "<group>"; };
 		00CCD480231CF165006E660B /* NSBundle+QMPod.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+QMPod.m"; sourceTree = "<group>"; };
 		00EF3A532331C9BA00FBD27F /* UIWindow+QM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIWindow+QM.h"; sourceTree = "<group>"; };
@@ -771,6 +774,8 @@
 				C71BDCDF22F187DB00B504F1 /* AppDelegate.m */,
 				0086910E234D717400344035 /* SecondVC.h */,
 				0086910F234D717400344035 /* SecondVC.m */,
+				00B461A52362E08700431714 /* ThirdVC.h */,
+				00B461A62362E08700431714 /* ThirdVC.m */,
 				C71BDCE122F187DB00B504F1 /* ViewController.h */,
 				C71BDCE222F187DB00B504F1 /* ViewController.m */,
 				10880A0422F832F50084B189 /* AppFramePrefix.pch */,
@@ -1052,6 +1057,7 @@
 				0005706022F419450014F679 /* NSDictionary+QMBlocksKit.m in Sources */,
 				0005706B22F419450014F679 /* NSSet+QMBlocksKit.m in Sources */,
 				00149A362328BF2100F2F94F /* QMAdjustableLabel.m in Sources */,
+				00B461A72362E08700431714 /* ThirdVC.m in Sources */,
 				0005705F22F419450014F679 /* UIDevice+QM.m in Sources */,
 				C70C5D1C230EBA8100248F7B /* UINavigation+QMFixSpace.m in Sources */,
 				C71BDCE322F187DB00B504F1 /* ViewController.m in Sources */,
