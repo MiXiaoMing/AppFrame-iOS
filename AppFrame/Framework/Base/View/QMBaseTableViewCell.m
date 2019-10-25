@@ -16,7 +16,7 @@
     NSString *identifier = NSStringFromClass(cls);
     id cell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!cell) {
-        cell = [[self alloc] initWithReuseIdentifier:identifier];
+        cell = [[self alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
     }
     
     return cell;
