@@ -23,8 +23,8 @@
 #define KSCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 
 // 判断设备
-#define IsPhoneX ([UIDevice isIphoneX])
-#define IsPhone5 ([UIDevice isIphone5])
+#define IsPhoneX ([UIScreen mainScreen].bounds.size.height == 812||[UIScreen mainScreen].bounds.size.height == 896)
+#define IsPhone5 ([UIScreen mainScreen].bounds.size.width == 320)
 
 // 颜色转换
 #define kColorWith_RGBA(r, g, b, a) [UIColor colorWithRed:r/255. green:g/255. blue:b/255. alpha:a]

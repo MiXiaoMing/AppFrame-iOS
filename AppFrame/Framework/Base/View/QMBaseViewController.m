@@ -31,7 +31,11 @@ static UIImage *leftBackImage;
 {
     [super viewWillDisappear:animated];
     [self.view endEditing:YES];
-    self.isNeedUpdate=YES;
+}
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    self.isNeedUpdate = true;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
