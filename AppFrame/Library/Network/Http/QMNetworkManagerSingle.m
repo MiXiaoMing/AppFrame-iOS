@@ -5,6 +5,7 @@
 
 #import "QMNetworkManagerSingle.h"
 #import "AFNetworking.h"
+#import "QMAppGlobalConfig.h"
 #define ERROR_IMFORMATION @"网络出现错误，请检查网络连接"
 
 #define ERROR [NSError errorWithDomain:@"Networking.ErrorDomain" code:-1009 userInfo:@{ NSLocalizedDescriptionKey:ERROR_IMFORMATION}]
@@ -227,6 +228,9 @@ static dispatch_once_t onceInitToken;
                                   } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                                       if (successBlock) successBlock(responseObject);
                                       [[self allTasks] removeObject:session];
+                                      if (![QMAppGlobalConfig currentIsProductEnvironment]) {
+                                          [self exportRequestLogWithURL:url parameters:params headers:self.headers response:task.response responseJSON:responseObject error:nil];
+                                      }
                                   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                                       if (error.code == -999 && [error.localizedDescription isEqualToString:@"cancelled"]) {
                                           //                           NSLog(@"取消网络请求");
@@ -235,6 +239,9 @@ static dispatch_once_t onceInitToken;
                                           if (failBlock) failBlock(error);
                                       }
                                       [[self allTasks] removeObject:session];
+                                      if (![QMAppGlobalConfig currentIsProductEnvironment]) {
+                                          [self exportRequestLogWithURL:url parameters:params headers:self.headers response:task.response responseJSON:nil error:error];
+                                      }
                                   }];
     
     //    if ([self haveSameRequestInTasksPool:session]) {
@@ -282,6 +289,9 @@ static dispatch_once_t onceInitToken;
                                        if (successBlock) successBlock(responseObject);
                                        
                                        [[self allTasks] removeObject:session];
+                                       if (![QMAppGlobalConfig currentIsProductEnvironment]) {
+                                           [self exportRequestLogWithURL:url parameters:params headers:self.headers response:task.response responseJSON:responseObject error:nil];
+                                       }
                                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                                        if (error.code == -999 && [error.localizedDescription isEqualToString:@"cancelled"]) {
                                            //            NSLog(@"取消网络请求");
@@ -290,6 +300,9 @@ static dispatch_once_t onceInitToken;
                                            if (failBlock) failBlock(error);
                                        }
                                        [[self allTasks] removeObject:session];
+                                       if (![QMAppGlobalConfig currentIsProductEnvironment]) {
+                                           [self exportRequestLogWithURL:url parameters:params headers:self.headers response:task.response responseJSON:nil error:error];
+                                       }
                                    }];
     
     //    if ([self haveSameRequestInTasksPool:session]) {
@@ -467,6 +480,73 @@ static dispatch_once_t onceInitToken;
     return oldTask;
 }
 
+#pragma mark - private
+/**
+ 输出返回信息
+ */
+- (void)exportRequestLogWithURL:(nullable NSString *)url
+                     parameters:(nullable NSDictionary *)parameters
+                        headers:(nullable NSDictionary *)headers
+                       response:(nullable NSHTTPURLResponse *)response
+                   responseJSON:(nullable id)responseJSON
+                          error:(nullable NSError *)error
+{
+    NSMutableString *log = [NSMutableString new];
+    [log appendFormat:@"\n"];
+    [log appendFormat:@"*******************************************************"];
+    [log appendFormat:@"\n"];
+    if (url != nil && url.length > 0) {
+        [log appendFormat:@"URL: %@", url];
+        [log appendFormat:@"\n"];
+    }
+    if (headers != nil) {
+        [log appendFormat:@"Headers: %@", [self bv_jsonStringWithDictionary:headers prettyPrint:true]];
+        [log appendFormat:@"\n"];
+    }
+    if (parameters != nil) {
+        [log appendFormat:@"Parameters: %@", [self bv_jsonStringWithDictionary:parameters prettyPrint:true]];
+        [log appendFormat:@"\n"];
+    }
+    [log appendFormat:@"-------------------------------------------------------"];
+    [log appendFormat:@"\n"];
+    if (response != nil) {
+        [log appendFormat:@"Status Code: %ld", (long)response.statusCode];
+        [log appendFormat:@"\n"];
+        [log appendFormat:@"Headers: %@", [self bv_jsonStringWithDictionary:response.allHeaderFields prettyPrint:true]];
+        [log appendFormat:@"\n"];
+    }
+    if (responseJSON != nil) {
+        [log appendFormat:@"responseJSON: %@", [self bv_jsonStringWithDictionary:responseJSON prettyPrint:true]];
+        [log appendFormat:@"\n"];
+    }
+    if (error != nil) {
+        [log appendFormat:@"ErrorCode: %ld", error.code];
+        [log appendFormat:@"\n"];
+        [log appendFormat:@"Error: %@", error.userInfo];
+        [log appendFormat:@"\n"];
+    }
+    [log appendFormat:@"*******************************************************"];
+    [log appendFormat:@"\n"];
+    printf("%s", [log cStringUsingEncoding:NSUTF8StringEncoding]);
+}
+
+- (NSString *)bv_jsonStringWithDictionary:(NSDictionary *)dictionary prettyPrint:(BOOL)prettyPrint
+{
+    if (dictionary == nil) {
+        return nil;
+    }
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary
+                                                       options:(NSJSONWritingOptions)(prettyPrint ? NSJSONWritingPrettyPrinted : 0)
+                                                         error:&error];
+    
+    if (! jsonData) {
+        NSLog(@"%s: error: %@", __func__, error.localizedDescription);
+        return @"{}";
+    } else {
+        return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+}
 #pragma mark - lazy load
 - (NSMutableArray *)allTasks {
     static dispatch_once_t onceToken;

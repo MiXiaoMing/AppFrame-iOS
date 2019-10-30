@@ -27,6 +27,12 @@ static UIImage *leftBackImage;
         [self.view setNeedsLayout];
     }
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    NSLog(@"currentClass^^%@  ", NSStringFromClass([self class]));
+}
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];

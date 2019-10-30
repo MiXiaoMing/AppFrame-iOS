@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AppFrame'
-  s.version          = '0.6.3'
+  s.version          = '0.6.4'
   s.summary          = 'AppFrame'
   s.homepage         = 'https://github.com/MiXiaoMing'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -151,7 +151,7 @@ Pod::Spec.new do |s|
     ss.subspec 'Network' do |sss|
 
       sss.subspec 'Http' do |ssss|
-        ssss.dependency 'AFNetworking', '~> 3.2.1'
+        ssss.dependency 'AppFrame/Framework/Base/Model'
         ssss.source_files = 'AppFrame/Library/Network/Http/*.{h,m}'
         ssss.public_header_files = 'AppFrame/Library/Network/Http/*.h'
       end

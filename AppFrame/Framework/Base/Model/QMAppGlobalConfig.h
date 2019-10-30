@@ -27,8 +27,11 @@ typedef enum : NSUInteger {
 
 + (instancetype) sharedInstance;
 
-- (void)setCurrentEnviroment:(QMAppEnvironment)enviroment;
+/// 当前是否为开发环境
++ (BOOL)currentIsProductEnvironment;
 
+/// 设置当前环境
+- (void)setCurrentEnviroment:(QMAppEnvironment)enviroment;
 /**
  设置app当前语言
  */

@@ -63,6 +63,10 @@ static QMAppGlobalConfig *sharedSingleton = nil;
     return self;
 }
 
++ (BOOL)currentIsProductEnvironment
+{
+    return [QMAppGlobalConfig sharedInstance].enviroment == QMAppProductEnvironment ? true : false;
+}
 - (void)setCurrentEnviroment:(QMAppEnvironment)enviroment
 {
     _enviroment = enviroment;
