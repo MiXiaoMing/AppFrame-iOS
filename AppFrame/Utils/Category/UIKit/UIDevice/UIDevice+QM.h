@@ -60,11 +60,9 @@
 //获取UUID
 + (NSString *)getUUID;
 
-/**
- 苹果X系列 包括X，XS，XS Max，Xr
- */
-+ (BOOL)isIphoneX;
+//获得设备型号
++ (NSString *)getCurrentDeviceModel;
 
-+ (BOOL)isIphone5;
-
+//获得设备名称
++ (NSString *)getCurrentDeviceName;
 @end
