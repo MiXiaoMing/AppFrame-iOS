@@ -5,7 +5,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 
 @interface NSObject (QM)
 
@@ -37,4 +37,7 @@
  */
 - (NSString*)analysisConvertToString;
 
+
+/// 当前控制器
++ (UIViewController *)currentViewController;
 @end
