@@ -49,7 +49,7 @@
 #define QMImage(imageName) [UIImage imageNamed:imageName]
 
 //AppDelegate
-#define APP_DELEGATE ((AppDelegate *)[UIApplication sharedApplication].delegate)
+#define APP_DELEGATE ([UIApplication sharedApplication].delegate)
 #define QMApplication [UIApplication sharedApplication]
 
 #define QMAppWindow [UIApplication sharedApplication].delegate.window
