@@ -25,6 +25,7 @@
 #import "UINavigationController+QMFullScreen.h"
 #import "UILabel+QMTapAction.h"
 #import "UIWindow+QM.h"
+#import "UIScrollView+QMRefreshFooter.h"
 
 // Foundation-Category
 #import "NSDictionary+QM.h"

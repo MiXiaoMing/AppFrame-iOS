@@ -27,6 +27,7 @@
 		0005706B22F419450014F679 /* NSSet+QMBlocksKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005704D22F419450014F679 /* NSSet+QMBlocksKit.m */; };
 		0005706C22F419450014F679 /* NSObject+QM.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005705022F419450014F679 /* NSObject+QM.m */; };
 		0005706D22F419450014F679 /* NSDate+QM.m in Sources */ = {isa = PBXBuildFile; fileRef = 0005705422F419450014F679 /* NSDate+QM.m */; };
+		000A18E0237164440056331C /* UIScrollView+QMRefreshFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 000A18DF237164440056331C /* UIScrollView+QMRefreshFooter.m */; };
 		00149A362328BF2100F2F94F /* QMAdjustableLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00149A352328BF2100F2F94F /* QMAdjustableLabel.m */; };
 		0019916A2314CCBB00F1DC1F /* UIColor+QM.m in Sources */ = {isa = PBXBuildFile; fileRef = 001991692314CCBB00F1DC1F /* UIColor+QM.m */; };
 		0019916E2314F4D800F1DC1F /* UINavigationController+QMFullScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 0019916D2314F4D800F1DC1F /* UINavigationController+QMFullScreen.m */; };
@@ -146,6 +147,8 @@
 		0005705122F419450014F679 /* NSObject+QM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+QM.h"; sourceTree = "<group>"; };
 		0005705322F419450014F679 /* NSDate+QM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+QM.h"; sourceTree = "<group>"; };
 		0005705422F419450014F679 /* NSDate+QM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+QM.m"; sourceTree = "<group>"; };
+		000A18DE237164440056331C /* UIScrollView+QMRefreshFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+QMRefreshFooter.h"; sourceTree = "<group>"; };
+		000A18DF237164440056331C /* UIScrollView+QMRefreshFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+QMRefreshFooter.m"; sourceTree = "<group>"; };
 		00149A342328BF2100F2F94F /* QMAdjustableLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMAdjustableLabel.h; sourceTree = "<group>"; };
 		00149A352328BF2100F2F94F /* QMAdjustableLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMAdjustableLabel.m; sourceTree = "<group>"; };
 		001991682314CCBB00F1DC1F /* UIColor+QM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIColor+QM.h"; sourceTree = "<group>"; };
@@ -323,6 +326,7 @@
 				C70C5D0E230EB9A600248F7B /* UIButton */,
 				0005702022F419450014F679 /* UIImage */,
 				0005702522F419450014F679 /* UIView */,
+				000A18DD237162B80056331C /* UIScrollView */,
 				0005702C22F419450014F679 /* UIDevice */,
 			);
 			path = UIKit;
@@ -485,6 +489,15 @@
 				0019921E2318C1E400F1DC1F /* FoundationGlobalHeader.h */,
 			);
 			path = Marco;
+			sourceTree = "<group>";
+		};
+		000A18DD237162B80056331C /* UIScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				000A18DE237164440056331C /* UIScrollView+QMRefreshFooter.h */,
+				000A18DF237164440056331C /* UIScrollView+QMRefreshFooter.m */,
+			);
+			path = UIScrollView;
 			sourceTree = "<group>";
 		};
 		00149A332328BEFF00F2F94F /* QMAdjustableLabel */ = {
@@ -1073,6 +1086,7 @@
 				00199177231500E600F1DC1F /* QMProgressHUD.m in Sources */,
 				0005706A22F419450014F679 /* NSTimer+QMBlocksKit.m in Sources */,
 				001991AA231653E300F1DC1F /* QMBaseTextField.m in Sources */,
+				000A18E0237164440056331C /* UIScrollView+QMRefreshFooter.m in Sources */,
 				0005706422F419450014F679 /* NSString+QMVerification.m in Sources */,
 				001991952316501500F1DC1F /* QMBaseLabel.m in Sources */,
 				0005706D22F419450014F679 /* NSDate+QM.m in Sources */,

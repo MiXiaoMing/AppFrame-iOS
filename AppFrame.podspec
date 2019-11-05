@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AppFrame'
-  s.version          = '0.6.7'
+  s.version          = '0.6.8'
   s.summary          = 'AppFrame'
   s.homepage         = 'https://github.com/MiXiaoMing'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -126,6 +126,11 @@ Pod::Spec.new do |s|
           sssss.source_files = 'AppFrame/Utils/Category/UIKit/UIView/*.{h,m}'
           sssss.public_header_files = 'AppFrame/Utils/Category/UIKit/UIView/*.h'
         end
+        
+        ssss.subspec 'UIScrollView' do |sssss|
+          sssss.source_files = 'AppFrame/Utils/Category/UIKit/UIScrollView/*.{h,m}'
+          sssss.public_header_files = 'AppFrame/Utils/Category/UIKit/UIScrollView/*.h'
+        end
 
         ssss.subspec 'UIViewController' do |sssss|
           sssss.source_files = 'AppFrame/Utils/Category/UIKit/UIViewController/*.{h,m}'
@@ -217,4 +222,5 @@ Pod::Spec.new do |s|
   s.dependency 'AFNetworking', '~> 3.2.1'
   s.dependency 'MBProgressHUD', '~> 1.1.0'
   s.dependency 'DZNEmptyDataSet', '~> 1.8.1'
+  s.dependency 'MJRefresh', '~> 3.2.0'
 end
