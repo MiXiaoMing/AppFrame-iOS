@@ -46,6 +46,7 @@
 #import "NSDate+QMConversion.h"
 #import "NSNumber+QM.h"
 #import "NSBundle+QMPod.h"
+#import "NSBundle+QM.h"
 
 #import "CLLocation+QMCalculate.h"
 

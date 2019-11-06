@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -57,6 +57,7 @@
 		004E869C22FD171E00E38C11 /* NSStringTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 004E869B22FD171E00E38C11 /* NSStringTests.m */; };
 		004E869E22FD46A500E38C11 /* NSDateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 004E869D22FD46A500E38C11 /* NSDateTests.m */; };
 		004E86A022FD589800E38C11 /* QMToolsManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 004E869F22FD589800E38C11 /* QMToolsManagerTests.m */; };
+		006AA32F2372C4B6004BE979 /* NSBundle+QM.m in Sources */ = {isa = PBXBuildFile; fileRef = 006AA32E2372C4B6004BE979 /* NSBundle+QM.m */; };
 		006B87BE235EAC5D00508C7A /* UIView+QMBlockKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 006B87BD235EAC5D00508C7A /* UIView+QMBlockKit.m */; };
 		007F9ACF2354181200ED8842 /* AppFrameResource.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 007F9ACE2354181200ED8842 /* AppFrameResource.xcassets */; };
 		00869110234D717400344035 /* SecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 0086910F234D717400344035 /* SecondVC.m */; };
@@ -204,6 +205,8 @@
 		004E869D22FD46A500E38C11 /* NSDateTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSDateTests.m; sourceTree = "<group>"; };
 		004E869F22FD589800E38C11 /* QMToolsManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QMToolsManagerTests.m; sourceTree = "<group>"; };
 		004E86A122FD592300E38C11 /* QMUtilsHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QMUtilsHeader.h; sourceTree = "<group>"; };
+		006AA32D2372C4B6004BE979 /* NSBundle+QM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSBundle+QM.h"; sourceTree = "<group>"; };
+		006AA32E2372C4B6004BE979 /* NSBundle+QM.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+QM.m"; sourceTree = "<group>"; };
 		006B87BC235EAC5D00508C7A /* UIView+QMBlockKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+QMBlockKit.h"; sourceTree = "<group>"; };
 		006B87BD235EAC5D00508C7A /* UIView+QMBlockKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+QMBlockKit.m"; sourceTree = "<group>"; };
 		007F9ACE2354181200ED8842 /* AppFrameResource.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = AppFrameResource.xcassets; sourceTree = "<group>"; };
@@ -618,6 +621,8 @@
 			children = (
 				00CCD47F231CF164006E660B /* NSBundle+QMPod.h */,
 				00CCD480231CF165006E660B /* NSBundle+QMPod.m */,
+				006AA32D2372C4B6004BE979 /* NSBundle+QM.h */,
+				006AA32E2372C4B6004BE979 /* NSBundle+QM.m */,
 			);
 			path = NSBundle;
 			sourceTree = "<group>";
@@ -1068,6 +1073,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006AA32F2372C4B6004BE979 /* NSBundle+QM.m in Sources */,
 				C70C5D15230EBA1A00248F7B /* UILabel+QMTapAction.m in Sources */,
 				0019916A2314CCBB00F1DC1F /* UIColor+QM.m in Sources */,
 				004E869A22FD152300E38C11 /* NSArray+QM.m in Sources */,
