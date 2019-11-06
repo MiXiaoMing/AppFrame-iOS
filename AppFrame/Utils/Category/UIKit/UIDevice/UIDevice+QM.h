@@ -65,4 +65,6 @@
 
 //获得设备名称
 + (NSString *)getCurrentDeviceName;
+//获取设备的物理ip地址
++ (NSString *)getIpAddresses;
 @end
