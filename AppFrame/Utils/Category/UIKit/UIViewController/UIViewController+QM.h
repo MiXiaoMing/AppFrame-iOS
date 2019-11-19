@@ -12,8 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIViewController (QM)
 
-@property (nonatomic, strong, readonly) UIViewController *currentViewController;
-
 @end
 
 NS_ASSUME_NONNULL_END
