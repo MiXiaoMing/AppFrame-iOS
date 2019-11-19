@@ -107,7 +107,7 @@ static NSInteger QM_tempBehavior = 0;
     Class superClass = viewController.class;
     BOOL flag = false;
     
-    if (viewController == nil || ![viewController isKindOfClass:[UIViewController alloc]]) {
+    if (viewController == nil || ![viewController isKindOfClass:[UIViewController class]]) {
         return flag;
     }
     while (![NSStringFromClass(superClass) isEqualToString:NSStringFromClass([UIViewController class])]) {
