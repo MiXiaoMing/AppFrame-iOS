@@ -100,7 +100,7 @@
     }
 }
 
-+ (UIViewController *)currentViewController
++ (UIViewController *)qm_currentViewController
 {
     UIViewController* rootViewController = [UIApplication sharedApplication].delegate.window.rootViewController;
     return [self currentViewControllerFrom:rootViewController];

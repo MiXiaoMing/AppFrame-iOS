@@ -39,5 +39,5 @@
 
 
 /// 当前控制器
-+ (UIViewController *)currentViewController;
++ (UIViewController *)qm_currentViewController;
 @end
