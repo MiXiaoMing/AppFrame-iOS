@@ -21,10 +21,16 @@
 
 #define KSCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 #define KSCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
+#define kMainScreenHeight (IsPhoneX ? ([UIScreen mainScreen].bounds.size.height-34) : [UIScreen mainScreen].bounds.size.height)
 
 // 判断设备
 #define IsPhoneX ([UIScreen mainScreen].bounds.size.height == 812||[UIScreen mainScreen].bounds.size.height == 896)
 #define IsPhone5 ([UIScreen mainScreen].bounds.size.width == 320)
+#define is_iPhone4 ([UIScreen mainScreen].bounds.size.height == 480)
+#define is_iPhone4_5 ([UIScreen mainScreen].bounds.size.width == 320)
+#define is_iPhone6 ([UIScreen mainScreen].bounds.size.width == 375)
+#define is_iPhone6p ([UIScreen mainScreen].bounds.size.width == 414)
+#define is_iPhone5 ([UIScreen mainScreen].bounds.size.height == 548)
 
 // 颜色转换
 #define kColorWith_RGBA(r, g, b, a) [UIColor colorWithRed:r/255. green:g/255. blue:b/255. alpha:a]
@@ -42,6 +48,7 @@
 #define kBottomSafeAreaInsets (IsPhoneX?34:0)
 #define SCREEN_ORIGINY ([[UIApplication sharedApplication] statusBarFrame].size.height + 44.0f)
 #define kTabBarHeight (IsPhoneX ? 83:49)
+#define kFontTimes ((is_iPhone6 || is_iPhone4_5)? 1 : kWidthScale*0.9)
 
 // 文字大小
 #define kFont(font) [UIFont systemFontOfSize:font]

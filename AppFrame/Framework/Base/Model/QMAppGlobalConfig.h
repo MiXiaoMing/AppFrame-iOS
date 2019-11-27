@@ -27,7 +27,7 @@ typedef enum : NSUInteger {
 
 + (instancetype) sharedInstance;
 
-/// 当前是否为开发环境
+/// 当前是否为生产环境
 + (BOOL)currentIsProductEnvironment;
 
 /// 设置当前环境
