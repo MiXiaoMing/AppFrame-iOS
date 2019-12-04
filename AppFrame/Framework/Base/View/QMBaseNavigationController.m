@@ -8,6 +8,7 @@
 
 #import "QMBaseNavigationController.h"
 #import "UIImage+QMGenerate.h"
+#import "UIKitGlobalHeader.h"
 @interface QMBaseNavigationController ()
 
 @end
@@ -17,9 +18,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    UIImage *barImg = [UIImage squareImageWithColor:[UIColor whiteColor] targetSize:CGSizeMake(500, 88.)];
-    UIImage *barImg = [UIImage squareImageWithColor:[UIColor redColor] targetSize:CGSizeMake(500, 88.)];
+    UIImage *barImg = [UIImage squareImageWithColor:kColorWith_RGB_Hex(0xe73736) targetSize:CGSizeMake(KSCREEN_WIDTH, 88)];
     [self.navigationBar setBackgroundImage:barImg forBarMetrics:UIBarMetricsDefault];
-    [self.navigationBar setShadowImage:[UIImage squareImageWithColor:[UIColor colorWithRed:231/255. green:231/255. blue:231/255. alpha:1] targetSize:CGSizeMake(500, 1)]];
+    [self.navigationBar setShadowImage:[UIImage new]];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
