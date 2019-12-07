@@ -24,30 +24,13 @@
     UIImage *barImg = [UIImage squareImageWithColor:kColorWith_RGB_Hex(0xe73736) targetSize:CGSizeMake(KSCREEN_WIDTH, 88)];
     [self.navigationBar setBackgroundImage:barImg forBarMetrics:UIBarMetricsDefault];
     [self.navigationBar setShadowImage:[UIImage new]];
-    [self.navigationBar setTitleTextAttributes:@{@"NSFontAttributeName" : kFont(18)]}];
+    [self.navigationBar setTitleTextAttributes:@{@"NSFontAttributeName" : kFont(18),
+                                                 @"NSForegroundColorAttributeName" : UIColor.whiteColor}];
 }
 
 - (UIStatusBarStyle)preferredStatusBarStyle {
     UIViewController* topVC = self.topViewController;
     return [topVC preferredStatusBarStyle];
-}
-
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    // 非根控制器
-    if (self.childViewControllers.count > 0) {
-        // 设置返回按钮
-        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(back) image:[NSBundle getPodImageWith:@"AppFrame" fileName:@"top_icon_back" type:@"png"] itemSpaces:QMBarItemSpaceMake(15, 15)];
-        
-        // 隐藏TabBar
-        [viewController setHidesBottomBarWhenPushed:YES];
-    }
-    
-    // 真正跳转
-    [super pushViewController:viewController animated:animated];
-}
-
-- (void)back {
-    [self popViewControllerAnimated:YES];
 }
 
 @end
