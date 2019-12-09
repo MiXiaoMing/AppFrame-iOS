@@ -68,6 +68,8 @@
 		00FFEC8E2338EF930091B0D6 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 00FFEC8D2338EF920091B0D6 /* Podfile */; };
 		0367C7662582B0754F6EDB8C /* libPods-AppFrameTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 095945ACA9C534E9E47519AB /* libPods-AppFrameTests.a */; };
 		03E3E952F63E6FFFF45590F0 /* libPods-AppFrame.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E83FB593301710B86A54D2B2 /* libPods-AppFrame.a */; };
+		73BA15C8239B816300335E50 /* UIImageView+HZExtend.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BA15C6239B816300335E50 /* UIImageView+HZExtend.m */; };
+		73BA15D7239E14B100335E50 /* UIView+SDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 73BA15D5239E14B000335E50 /* UIView+SDExtension.m */; };
 		84CB90547DF56A5C7DF6E7DC /* libPods-AppFrameUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 204BB4904A4C30F7B67A9CD6 /* libPods-AppFrameUITests.a */; };
 		C70C5D0D230EB94800248F7B /* NSString+QMAttribute.m in Sources */ = {isa = PBXBuildFile; fileRef = C70C5D0C230EB94800248F7B /* NSString+QMAttribute.m */; };
 		C70C5D11230EB9B700248F7B /* UIButton+QMImgTextPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = C70C5D10230EB9B700248F7B /* UIButton+QMImgTextPosition.m */; };
@@ -226,6 +228,10 @@
 		204BB4904A4C30F7B67A9CD6 /* libPods-AppFrameUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppFrameUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		263BECDB78A5A8896C4C1C5B /* Pods-AppFrameUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppFrameUITests.debug.xcconfig"; path = "Target Support Files/Pods-AppFrameUITests/Pods-AppFrameUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		6533B8577320495262D4032D /* Pods-AppFrameUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppFrameUITests.release.xcconfig"; path = "Target Support Files/Pods-AppFrameUITests/Pods-AppFrameUITests.release.xcconfig"; sourceTree = "<group>"; };
+		73BA15C6239B816300335E50 /* UIImageView+HZExtend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+HZExtend.m"; sourceTree = "<group>"; };
+		73BA15C7239B816300335E50 /* UIImageView+HZExtend.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+HZExtend.h"; sourceTree = "<group>"; };
+		73BA15D5239E14B000335E50 /* UIView+SDExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDExtension.m"; sourceTree = "<group>"; };
+		73BA15D6239E14B000335E50 /* UIView+SDExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDExtension.h"; sourceTree = "<group>"; };
 		7BCC392C7797ABC5B7492E30 /* Pods-AppFrame.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppFrame.release.xcconfig"; path = "Target Support Files/Pods-AppFrame/Pods-AppFrame.release.xcconfig"; sourceTree = "<group>"; };
 		949B6F02098060CA5260391E /* Pods-AppFrameTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppFrameTests.debug.xcconfig"; path = "Target Support Files/Pods-AppFrameTests/Pods-AppFrameTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A11F7C7D0B5E14E35823690C /* Pods-AppFrameTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppFrameTests.release.xcconfig"; path = "Target Support Files/Pods-AppFrameTests/Pods-AppFrameTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -321,6 +327,7 @@
 		0005701F22F419450014F679 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
+				73BA15C5239B815000335E50 /* UIImageView */,
 				00EF3A562331C9C900FBD27F /* UIWindow */,
 				001991672314CCA400F1DC1F /* UIColor */,
 				C70C5D20230EBB4400248F7B /* UIViewController */,
@@ -349,6 +356,8 @@
 		0005702522F419450014F679 /* UIView */ = {
 			isa = PBXGroup;
 			children = (
+				73BA15D6239E14B000335E50 /* UIView+SDExtension.h */,
+				73BA15D5239E14B000335E50 /* UIView+SDExtension.m */,
 				0005702722F419450014F679 /* UIView+QM.h */,
 				0005702B22F419450014F679 /* UIView+QM.m */,
 				0005702822F419450014F679 /* UIView+QMDraw.h */,
@@ -673,6 +682,15 @@
 				C70C5D24230EBB8A00248F7B /* Network */,
 			);
 			path = Library;
+			sourceTree = "<group>";
+		};
+		73BA15C5239B815000335E50 /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				73BA15C7239B816300335E50 /* UIImageView+HZExtend.h */,
+				73BA15C6239B816300335E50 /* UIImageView+HZExtend.m */,
+			);
+			path = UIImageView;
 			sourceTree = "<group>";
 		};
 		C70C5D0E230EB9A600248F7B /* UIButton */ = {
@@ -1103,6 +1121,7 @@
 				0005706522F419450014F679 /* NSString+QMEncrypt.m in Sources */,
 				001991A7231653AC00F1DC1F /* QMBaseTableViewCell.m in Sources */,
 				C70C5D0D230EB94800248F7B /* NSString+QMAttribute.m in Sources */,
+				73BA15C8239B816300335E50 /* UIImageView+HZExtend.m in Sources */,
 				001992322318CCB000F1DC1F /* NSNumber+QM.m in Sources */,
 				0019919E2316519D00F1DC1F /* QMBaseTabBarController.m in Sources */,
 				00B11798235461DC003F6E3B /* NSDate+QMConversion.m in Sources */,
@@ -1133,6 +1152,7 @@
 				C71BDCEE22F187DC00B504F1 /* main.m in Sources */,
 				001992352318CDF900F1DC1F /* UIViewController+QM.m in Sources */,
 				C71BDCE022F187DB00B504F1 /* AppDelegate.m in Sources */,
+				73BA15D7239E14B100335E50 /* UIView+SDExtension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

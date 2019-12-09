@@ -138,6 +138,7 @@ DZNEmptyDataSetDelegate>
         _plainTableView.emptyDataSetDelegate = self;
         _plainTableView.emptyDataSetSource = self;
         _plainTableView.tableFooterView = [[UIView alloc] init];
+        _plainTableView.separatorColor = [UIColor colorWithRed:221.0/255.0 green:221.0/255.0 blue:221.0/255.0 alpha:1];
     }
     return _plainTableView;
 }
@@ -154,6 +155,7 @@ DZNEmptyDataSetDelegate>
         _groupTableview.emptyDataSetSource = self;
         _groupTableview.emptyDataSetDelegate = self;
         _groupTableview.tableFooterView = [[UIView alloc] init];
+        _groupTableview.separatorColor = [UIColor colorWithRed:221.0/255.0 green:221.0/255.0 blue:221.0/255.0 alpha:1];
     }
     return _groupTableview;
 }
