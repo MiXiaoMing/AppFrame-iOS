@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface QMBaseNavigationController : UINavigationController
 
+- (void)setNavigationBarBackgroundColor:(UIColor *)color;
+
 @end
 
 NS_ASSUME_NONNULL_END
