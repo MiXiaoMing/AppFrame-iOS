@@ -8,7 +8,7 @@ target 'AppFrame' do
    pod 'MBProgressHUD', '~> 1.1.0'
    pod 'DZNEmptyDataSet', '~> 1.8.1'
    pod 'MJRefresh', '~> 3.2.0'
-
+   pod 'SDWebImage', '~> 3.7.2'
   # Pods for AppFrame
 
   target 'AppFrameTests' do

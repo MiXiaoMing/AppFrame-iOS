@@ -7,12 +7,12 @@
 //
 
 #import "UIImageView+HZExtend.h"
-#import "NSObject+HZExtend.h"
+#import "NSObject+QM.h"
 @implementation UIImageView (HZExtend)
 
 - (void)safeSetImageWithURL:(NSString *)url placeholder:(UIImage *)image
 {
-    if (url.isNoEmpty) {
+    if (url.isNotEmpty) {
         //去掉头尾空格（编辑录入失误的容错）
         url = [url stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         NSURL *imageURL = [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -33,7 +33,7 @@
 
 
 - (void)safeSetImageWithURL:(NSString *)url placeholder:(UIImage *)image loadfinishBlock:(void (^)()) finishBlock{
-    if (url.isNoEmpty) {
+    if (url.isNotEmpty) {
         //去掉头尾空格（编辑录入失误的容错）
         url = [url stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         NSURL *imageURL = [NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
