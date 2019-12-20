@@ -34,4 +34,15 @@
     [self.navigationBar setShadowImage:[UIImage new]];
 }
 
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    // 非根控制器
+    if (self.childViewControllers.count > 0) {
+        // 隐藏TabBar
+        [viewController setHidesBottomBarWhenPushed:YES];
+    }
+    
+    // 真正跳转
+    [super pushViewController:viewController animated:animated];
+}
+
 @end
