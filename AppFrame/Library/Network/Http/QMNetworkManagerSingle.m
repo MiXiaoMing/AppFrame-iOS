@@ -232,8 +232,8 @@ static dispatch_once_t onceInitToken;
                                           [self exportRequestLogWithURL:url parameters:params headers:self.headers response:task.response responseJSON:responseObject error:nil];
                                       }
                                   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                      if (error.code == -999 && [error.localizedDescription isEqualToString:@"cancelled"]) {
-                                          //                           NSLog(@"取消网络请求");
+                                      if (error.code == -999) {
+//                                          NSLog(@"取消网络请求");
                                       }else
                                       {
                                           if (failBlock) failBlock(error);
@@ -293,8 +293,8 @@ static dispatch_once_t onceInitToken;
                                            [self exportRequestLogWithURL:url parameters:params headers:self.headers response:task.response responseJSON:responseObject error:nil];
                                        }
                                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                       if (error.code == -999 && [error.localizedDescription isEqualToString:@"cancelled"]) {
-                                           //            NSLog(@"取消网络请求");
+                                       if (error.code == -999) {
+                                           NSLog(@"取消网络请求");
                                        }else
                                        {
                                            if (failBlock) failBlock(error);
