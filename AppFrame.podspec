@@ -223,5 +223,4 @@ Pod::Spec.new do |s|
   s.dependency 'MBProgressHUD', '~> 1.1.0'
   s.dependency 'DZNEmptyDataSet', '~> 1.8.1'
   s.dependency 'MJRefresh', '~> 3.2.0'
-  s.dependency 'SDWebImage', '~> 3.7.2'
 end
