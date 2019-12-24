@@ -254,12 +254,12 @@ static dispatch_once_t onceInitToken;
     //        return session;
     //    }
     
-    NSURLSessionTask *oldTask = [self cancleSameRequestInTasksPool:session];
-    if (oldTask) {
-        //        NSLog(@"进入");
-        [oldTask cancel];
-        [[self allTasks] removeObject:oldTask];
-    }
+//    NSURLSessionTask *oldTask = [self cancleSameRequestInTasksPool:session];
+//    if (oldTask) {
+//        //        NSLog(@"进入");
+//        [oldTask cancel];
+//        [[self allTasks] removeObject:oldTask];
+//    }
     if (session) [[self allTasks] addObject:session];
     [session resume];
     
@@ -314,11 +314,11 @@ static dispatch_once_t onceInitToken;
     //        return session;
     //    }
     
-    NSURLSessionTask *oldTask = [self cancleSameRequestInTasksPool:session];
-    if (oldTask) {
-        [oldTask cancel];
-        [[self allTasks] removeObject:oldTask];
-    }
+//    NSURLSessionTask *oldTask = [self cancleSameRequestInTasksPool:session];
+//    if (oldTask) {
+//        [oldTask cancel];
+//        [[self allTasks] removeObject:oldTask];
+//    }
     if (session) [[self allTasks] addObject:session];
     [session resume];
     
