@@ -358,10 +358,8 @@ static dispatch_once_t onceInitToken;
                   } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                       if (successBlock) successBlock(responseObject);
                       [[self allTasks] removeObject:session];
-                      [self.httpSessionManager.session finishTasksAndInvalidate];
                   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                       if (failBlock) failBlock(error);
-                      [self.httpSessionManager.session finishTasksAndInvalidate];
                       [[self allTasks] removeObject:session];
                   }];
     
@@ -391,7 +389,6 @@ static dispatch_once_t onceInitToken;
         NSString *filePath = [downloadDir stringByAppendingPathComponent:response.suggestedFilename];
         return [NSURL URLWithString:filePath];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-        [self.httpSessionManager.session finishTasksAndInvalidate];
         [[self allTasks] removeObject:session];
         if(failBlock && error) {failBlock(error) ; return ;};
         successBlock ? successBlock(filePath.absoluteString /** NSURL->NSString*/) : nil;
@@ -438,11 +435,9 @@ static dispatch_once_t onceInitToken;
                       });
                   } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                       if (success) success(responseObject);
-                      [self.httpSessionManager.session finishTasksAndInvalidate];
                       [[self allTasks] removeObject:session];
                   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                       if (failure) failure(error);
-                      [self.httpSessionManager.session finishTasksAndInvalidate];
                       [[self allTasks] removeObject:session];
                   }];
     
