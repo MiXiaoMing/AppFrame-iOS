@@ -427,15 +427,10 @@ static dispatch_once_t onceInitToken;
                       for (int i = 0; i < images.count; i++) {
                           NSData *imageData = UIImageJPEGRepresentation(images[i], imageScale ?: 1.f);
                           
-                          NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                          formatter.dateFormat = @"yyyyMMddHHmmss";
-                          NSString *str = [formatter stringFromDate:[NSDate date]];
-                          NSString *imageFileName = [NSString stringWithFormat:@"%@%d.%@",str,i,imageType?nil:@"jpg"];
-                          
                           [formData appendPartWithFileData:imageData
                                                       name:name
-                                                  fileName:fileNames ? [NSString stringWithFormat:@"%@.%@",fileNames[i],imageType?:@"jpg"] : imageFileName
-                                                  mimeType:[NSString stringWithFormat:@"image/%@",imageType ?: @"jpg"]];
+                                                  fileName:fileNames[i]
+                                                  mimeType:@"image/jpg"];
                       }
                   } progress:^(NSProgress * _Nonnull uploadProgress) {
                       dispatch_sync(dispatch_get_main_queue(), ^{
