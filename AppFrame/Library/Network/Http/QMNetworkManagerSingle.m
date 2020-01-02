@@ -197,7 +197,12 @@ static dispatch_once_t onceInitToken;
 }
 - (void)clearHeaders
 {
-    [self.httpSessionManager.requestSerializer clearAuthorizationHeader];
+    NSDictionary *headers = self.httpSessionManager.requestSerializer.HTTPRequestHeaders;
+    if (headers.count != 0) {
+        for (NSString *headerField in headers.keyEnumerator) {
+            [self.httpSessionManager.requestSerializer setValue:nil forHTTPHeaderField:headerField];
+        }
+    }
 }
 - (void)setupTimeout:(NSTimeInterval)timeout
 {
