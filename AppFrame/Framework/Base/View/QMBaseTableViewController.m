@@ -139,6 +139,11 @@ DZNEmptyDataSetDelegate>
         _plainTableView.emptyDataSetSource = self;
         _plainTableView.tableFooterView = [[UIView alloc] init];
         _plainTableView.separatorColor = [UIColor colorWithRed:221.0/255.0 green:221.0/255.0 blue:221.0/255.0 alpha:1];
+        if (@available(iOS 11.0, *)) {
+            _plainTableView.estimatedRowHeight = 0;
+            _plainTableView.estimatedSectionHeaderHeight = 0;
+            _plainTableView.estimatedSectionFooterHeight = 0;
+        }
     }
     return _plainTableView;
 }
@@ -156,6 +161,11 @@ DZNEmptyDataSetDelegate>
         _groupTableview.emptyDataSetDelegate = self;
         _groupTableview.tableFooterView = [[UIView alloc] init];
         _groupTableview.separatorColor = [UIColor colorWithRed:221.0/255.0 green:221.0/255.0 blue:221.0/255.0 alpha:1];
+        if (@available(iOS 11.0, *)) {
+            _groupTableview.estimatedRowHeight = 0;
+            _groupTableview.estimatedSectionHeaderHeight = 0;
+            _groupTableview.estimatedSectionFooterHeight = 0;
+        }
     }
     return _groupTableview;
 }
