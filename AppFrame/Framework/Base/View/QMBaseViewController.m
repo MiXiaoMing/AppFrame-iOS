@@ -82,7 +82,7 @@ static UIImage *leftBackImage;
         image = leftBackImage;
     }else
     {
-        image = [NSBundle getPodImageWith:@"AppFrame" fileName:@"top_icon_back" type:@"png"];
+        image = [NSBundle getPodImageWith:@"AppFrame" fileName:@"top_small_back" type:@"png"];
 //        image = [NSBundle getPodImageWith:nil fileName:@"NavigationBack" type:@"png"];
     }
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem itemWithTarget:self action:@selector(clickLeftBarButtonItem) image:image itemSpaces:QMBarItemSpaceMake(15, 15)];
