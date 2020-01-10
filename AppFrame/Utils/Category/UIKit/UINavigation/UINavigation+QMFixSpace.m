@@ -71,35 +71,50 @@ static NSInteger QM_tempBehavior = 0;
 
 -(void)QM_pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [self QM_pushViewController:viewController animated:animated];
-    [self judgeNewControllerIsInFrame:viewController];
-    [self.navigationBar layoutSubviews];
+//    [self judgeNewControllerIsInFrame:viewController];
+//    [self.navigationBar layoutSubviews];
+    if (!animated) {
+        [self.navigationBar setNeedsLayout];
+    }
 }
 
 - (nullable UIViewController *)QM_popViewControllerAnimated:(BOOL)animated{
     UIViewController *vc = [self QM_popViewControllerAnimated:animated];
-    [self judgeNewControllerIsInFrame:[self.viewControllers lastObject]];
-    [self.navigationBar layoutSubviews];
+//    [self judgeNewControllerIsInFrame:[self.viewControllers lastObject]];
+//    [self.navigationBar layoutSubviews];
+    if (!animated) {
+        [self.navigationBar setNeedsLayout];
+    }
     return vc;
 }
 
 - (nullable NSArray<__kindof UIViewController *> *)QM_popToViewController:(UIViewController *)viewController animated:(BOOL)animated{
     NSArray *vcs = [self QM_popToViewController:viewController animated:animated];
-    [self judgeNewControllerIsInFrame:viewController];
-    [self.navigationBar layoutSubviews];
+//    [self judgeNewControllerIsInFrame:viewController];
+//    [self.navigationBar layoutSubviews];
+    if (!animated) {
+        [self.navigationBar setNeedsLayout];
+    }
     return vcs;
 }
 
 - (nullable NSArray<__kindof UIViewController *> *)QM_popToRootViewControllerAnimated:(BOOL)animated{
     NSArray *vcs = [self QM_popToRootViewControllerAnimated:animated];
-    [self judgeNewControllerIsInFrame:[self.viewControllers lastObject]];
-    [self.navigationBar layoutSubviews];
+//    [self judgeNewControllerIsInFrame:[self.viewControllers lastObject]];
+//    [self.navigationBar layoutSubviews];
+    if (!animated) {
+        [self.navigationBar setNeedsLayout];
+    }
     return vcs;
 }
 
 - (void)QM_setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated NS_AVAILABLE_IOS(3_0){
     [self QM_setViewControllers:viewControllers animated:animated];
-    [self judgeNewControllerIsInFrame:[viewControllers lastObject]];
-    [self.navigationBar layoutSubviews];
+//    [self judgeNewControllerIsInFrame:[viewControllers lastObject]];
+//    [self.navigationBar layoutSubviews];
+    if (!animated) {
+        [self.navigationBar setNeedsLayout];
+    }
 }
 // 判断是否属于组件
 - (BOOL)judgeNewControllerIsInFrame:(UIViewController *)viewController
@@ -142,26 +157,37 @@ static NSInteger QM_tempBehavior = 0;
                 
             }else
             {
-                if (QM_isCurrentFrame) {
-                    self.layoutMargins = UIEdgeInsetsZero;
-                    CGFloat space = QM_defaultFixSpace;
-                    for (UIView *subview in self.subviews) {
-                        if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
-                            //可修正iOS11之后的偏移
-                            subview.layoutMargins = UIEdgeInsetsMake(0, space, 0, space);
-                            break;
-                        }
-                    }
-                }else
-                {
-                    for (UIView *subview in self.subviews) {
-                        if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
-                            //可修正iOS11之后的偏移
-                            subview.layoutMargins = UIEdgeInsetsMake(0, QM_systemDefaultMargin, 0, QM_systemDefaultMargin);
-                            break;
-                        }
+                self.layoutMargins = UIEdgeInsetsZero;
+                CGFloat space = QM_defaultFixSpace;
+                for (UIView *subview in self.subviews) {
+                    if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
+                        //可修正iOS11之后的偏移
+                        subview.layoutMargins = UIEdgeInsetsMake(0, space, 0, space);
+                        break;
                     }
                 }
+//                if (QM_isCurrentFrame) {
+//                    self.layoutMargins = UIEdgeInsetsZero;
+//                    CGFloat space = QM_defaultFixSpace;
+//                    for (UIView *subview in self.subviews) {
+//                        if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
+//                            //可修正iOS11之后的偏移
+//                            subview.layoutMargins = UIEdgeInsetsMake(0, space, 0, space);
+//                            break;
+//                        }
+//                    }
+//                }else
+//                {
+//                    self.layoutMargins = UIEdgeInsetsZero;
+//                    CGFloat space = QM_defaultFixSpace;
+//                    for (UIView *subview in self.subviews) {
+//                        if ([NSStringFromClass(subview.class) containsString:@"ContentView"]) {
+//                            //可修正iOS11之后的偏移
+//                            subview.layoutMargins = UIEdgeInsetsMake(0, space, 0, space);
+//                            break;
+//                        }
+//                    }
+//                }
             }
         }
     }

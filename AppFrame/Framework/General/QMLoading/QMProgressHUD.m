@@ -87,6 +87,7 @@
         hud.removeFromSuperViewOnHide = true;
         hud.minShowTime = 1.;
         hud.mode = MBProgressHUDModeText;
+        hud.userInteractionEnabled = false;
         if (bezelViewColor) {
             hud.bezelView.style = MBProgressHUDBackgroundStyleSolidColor;
             hud.bezelView.backgroundColor = bezelViewColor;

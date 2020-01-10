@@ -197,7 +197,12 @@ static dispatch_once_t onceInitToken;
 }
 - (void)clearHeaders
 {
-    [self.httpSessionManager.requestSerializer clearAuthorizationHeader];
+    NSDictionary *headers = self.httpSessionManager.requestSerializer.HTTPRequestHeaders;
+    if (headers.count != 0) {
+        for (NSString *headerField in headers.keyEnumerator) {
+            [self.httpSessionManager.requestSerializer setValue:nil forHTTPHeaderField:headerField];
+        }
+    }
 }
 - (void)setupTimeout:(NSTimeInterval)timeout
 {
@@ -232,8 +237,8 @@ static dispatch_once_t onceInitToken;
                                           [self exportRequestLogWithURL:url parameters:params headers:self.headers response:task.response responseJSON:responseObject error:nil];
                                       }
                                   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                      if (error.code == -999 && [error.localizedDescription isEqualToString:@"cancelled"]) {
-                                          //                           NSLog(@"取消网络请求");
+                                      if (error.code == -999) {
+//                                          NSLog(@"取消网络请求");
                                       }else
                                       {
                                           if (failBlock) failBlock(error);
@@ -254,12 +259,12 @@ static dispatch_once_t onceInitToken;
     //        return session;
     //    }
     
-    NSURLSessionTask *oldTask = [self cancleSameRequestInTasksPool:session];
-    if (oldTask) {
-        //        NSLog(@"进入");
-        [oldTask cancel];
-        [[self allTasks] removeObject:oldTask];
-    }
+//    NSURLSessionTask *oldTask = [self cancleSameRequestInTasksPool:session];
+//    if (oldTask) {
+//        //        NSLog(@"进入");
+//        [oldTask cancel];
+//        [[self allTasks] removeObject:oldTask];
+//    }
     if (session) [[self allTasks] addObject:session];
     [session resume];
     
@@ -293,8 +298,8 @@ static dispatch_once_t onceInitToken;
                                            [self exportRequestLogWithURL:url parameters:params headers:self.headers response:task.response responseJSON:responseObject error:nil];
                                        }
                                    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-                                       if (error.code == -999 && [error.localizedDescription isEqualToString:@"cancelled"]) {
-                                           //            NSLog(@"取消网络请求");
+                                       if (error.code == -999) {
+                                           NSLog(@"取消网络请求");
                                        }else
                                        {
                                            if (failBlock) failBlock(error);
@@ -314,11 +319,11 @@ static dispatch_once_t onceInitToken;
     //        return session;
     //    }
     
-    NSURLSessionTask *oldTask = [self cancleSameRequestInTasksPool:session];
-    if (oldTask) {
-        [oldTask cancel];
-        [[self allTasks] removeObject:oldTask];
-    }
+//    NSURLSessionTask *oldTask = [self cancleSameRequestInTasksPool:session];
+//    if (oldTask) {
+//        [oldTask cancel];
+//        [[self allTasks] removeObject:oldTask];
+//    }
     if (session) [[self allTasks] addObject:session];
     [session resume];
     
@@ -353,10 +358,8 @@ static dispatch_once_t onceInitToken;
                   } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                       if (successBlock) successBlock(responseObject);
                       [[self allTasks] removeObject:session];
-                      [self.httpSessionManager.session finishTasksAndInvalidate];
                   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                       if (failBlock) failBlock(error);
-                      [self.httpSessionManager.session finishTasksAndInvalidate];
                       [[self allTasks] removeObject:session];
                   }];
     
@@ -386,7 +389,6 @@ static dispatch_once_t onceInitToken;
         NSString *filePath = [downloadDir stringByAppendingPathComponent:response.suggestedFilename];
         return [NSURL URLWithString:filePath];
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
-        [self.httpSessionManager.session finishTasksAndInvalidate];
         [[self allTasks] removeObject:session];
         if(failBlock && error) {failBlock(error) ; return ;};
         successBlock ? successBlock(filePath.absoluteString /** NSURL->NSString*/) : nil;
@@ -422,15 +424,10 @@ static dispatch_once_t onceInitToken;
                       for (int i = 0; i < images.count; i++) {
                           NSData *imageData = UIImageJPEGRepresentation(images[i], imageScale ?: 1.f);
                           
-                          NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-                          formatter.dateFormat = @"yyyyMMddHHmmss";
-                          NSString *str = [formatter stringFromDate:[NSDate date]];
-                          NSString *imageFileName = [NSString stringWithFormat:@"%@%d.%@",str,i,imageType?nil:@"jpg"];
-                          
                           [formData appendPartWithFileData:imageData
                                                       name:name
-                                                  fileName:fileNames ? [NSString stringWithFormat:@"%@.%@",fileNames[i],imageType?:@"jpg"] : imageFileName
-                                                  mimeType:[NSString stringWithFormat:@"image/%@",imageType ?: @"jpg"]];
+                                                  fileName:fileNames[i]
+                                                  mimeType:@"image/jpg"];
                       }
                   } progress:^(NSProgress * _Nonnull uploadProgress) {
                       dispatch_sync(dispatch_get_main_queue(), ^{
@@ -438,11 +435,9 @@ static dispatch_once_t onceInitToken;
                       });
                   } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                       if (success) success(responseObject);
-                      [self.httpSessionManager.session finishTasksAndInvalidate];
                       [[self allTasks] removeObject:session];
                   } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
                       if (failure) failure(error);
-                      [self.httpSessionManager.session finishTasksAndInvalidate];
                       [[self allTasks] removeObject:session];
                   }];
     

@@ -12,6 +12,8 @@
 #import "UIColor+QM.h"
 #import "SecondVC.h"
 #import "FoundationGlobalHeader.h"
+#import "QMNetworkManagerSingle.h"
+#import "UIImage+QMGenerate.h"
 @interface ViewController ()
 
 @end
@@ -29,8 +31,15 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    SecondVC *vc = [[SecondVC alloc] init];
-    [self.navigationController pushViewController:vc animated:true];
+//    SecondVC *vc = [[SecondVC alloc] init];
+//    [self.navigationController pushViewController:vc animated:true];
+    UIImage *uploadImage = [UIImage squareImageWithColor:[UIColor redColor] targetSize:CGSizeMake(50, 50)];
+
+    [[QMNetworkManagerSingle shareInstance] uploadImagesWithURL:@"www.baidu.com" parameters:nil name:@"20191102.jpg" images:@[uploadImage] fileNames:@[@"20191102.jpg"] imageScale:1.0 imageType:@"png" progress:nil success:^(id response) {
+        
+    } failure:^(NSError *error) {
+        
+    }];
 }
 
 
