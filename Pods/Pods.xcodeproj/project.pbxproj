@@ -53,6 +53,7 @@
 		5607AF83703C0AEDB12115740B6672BD /* AFAutoPurgingImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 50EF3B43CFA70C77710FF46029BF6760 /* AFAutoPurgingImageCache.m */; };
 		5671A72ECAB90A855ECF6F69B750B4E1 /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BFA7872B1D3A2A5DE41EC8BE7B97686 /* UIWebView+AFNetworking.m */; };
 		57C4D41F54D6327C63C4508AF1CF989D /* MJRefreshAutoStateFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = 30936EC7EF67E31E46D8AB8E9386F0B4 /* MJRefreshAutoStateFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5A3E297705F3A4547756B09B4044B940 /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7F5F79C4D341AF0FB2FE3859FB4B0 /* MBProgressHUD-dummy.m */; };
 		5B69AEF39E06F46B23A52592D59FD94F /* SDImageCache.h in Headers */ = {isa = PBXBuildFile; fileRef = 70C53F2762688C6EAB1958A7501ADE8E /* SDImageCache.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5C7CE066A8C3006E646ED51FA8ABFBB0 /* MJRefreshComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 8679FB484BD9FE04C9023EFA6756690C /* MJRefreshComponent.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		5E09F160BDC1180231FFFD4E9CEF070A /* UIScrollView+MJRefresh.h in Headers */ = {isa = PBXBuildFile; fileRef = 1DDC7F1CCED08AB63E6A4F50A7DC6AFC /* UIScrollView+MJRefresh.h */; settings = {ATTRIBUTES = (Project, ); }; };
@@ -63,6 +64,7 @@
 		6B5B030904BA451F4FFE3AF2FD28D2DA /* AFImageDownloader.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E18BB9218E26FAA6CA2BA62EC033DAA /* AFImageDownloader.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		6D6A8D2F2AB609F048094394FA9AFC40 /* MJRefreshComponent.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D7F550835853C00ACC71CB235F26A6 /* MJRefreshComponent.m */; };
 		72797BC85469FCE7E6198B67EC88E851 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C0C30D4E8CB82CD6DD2FA969179DE7 /* AFURLRequestSerialization.m */; };
+		7437F5624147DCDF74F3343BBB08B7EC /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F1395E4BD9209DCEC884853D26D112DD /* MBProgressHUD.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		7476E72D69D6048345A68802E89DB8D0 /* MJRefreshBackGifFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = AB9E8444B56829FF08C8D5E4048364FA /* MJRefreshBackGifFooter.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		772BD8234037D60871DCD6A039C2649F /* Pods-AppFrameTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = AD28FDC89CF88FB77C4B3639F34E77B5 /* Pods-AppFrameTests-dummy.m */; };
 		81084FDFE7F1F0F81953EAF5915294BC /* SDWebImageCompat.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F5014C398DDEA97B6B161276D5E52F7 /* SDWebImageCompat.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -99,7 +101,6 @@
 		C1EE07F0E0B54668574633B545FBCE48 /* UIKit+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 79331A3D1F5537B803B9908A0A69AD1C /* UIKit+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		C34B854F0E164BA6F45E2C56EF1F3B94 /* UIImage+GIF.m in Sources */ = {isa = PBXBuildFile; fileRef = F85989795E7428ADFF8645DA88B954E9 /* UIImage+GIF.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
 		C564C8D042998164475E13AD54B0A294 /* MBProgressHUD.h in Headers */ = {isa = PBXBuildFile; fileRef = 0DBB317BF9569813BD4AE03171B12697 /* MBProgressHUD.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		C7FD66D3D320095B45AD9D39EF1B858B /* MBProgressHUD-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FF7F5F79C4D341AF0FB2FE3859FB4B0 /* MBProgressHUD-dummy.m */; };
 		C8D92DCCF5208CD6167F41BDE9C084E3 /* MJRefreshAutoNormalFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 25E440EB10143A9CEC81572789848C73 /* MJRefreshAutoNormalFooter.m */; };
 		CAF2D78D1F832921D189311A7304E28D /* MJRefreshBackGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F14B893B0A35AE5626A2BAE30B1639 /* MJRefreshBackGifFooter.m */; };
 		CCBD890D3E145EF45DC854B9FDEC6BA0 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A51A994621E1E43575279E56AB62027 /* UIView+WebCacheOperation.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -107,7 +108,6 @@
 		D280A3B13923FF5FA778EF312BD965F7 /* AFHTTPSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 16EFF31C34705587927C7FD5DBDC772D /* AFHTTPSessionManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D3DC240631E1FA883A5604B3E99BAE2B /* UIProgressView+AFNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = ACAC319E4543A79A0D75096C03E2D69F /* UIProgressView+AFNetworking.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D569D00367B456F6CDFE2700097562FC /* AFURLRequestSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 132E36E5735E7E42D484D3BBE9DE0DF3 /* AFURLRequestSerialization.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		D6438BA4F863AE0A7891F212EE3C06D0 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F1395E4BD9209DCEC884853D26D112DD /* MBProgressHUD.m */; };
 		D6453D26D9F99A3163EE5F4B4A8659E8 /* SDWebImageOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0F0AEE9A3EDF19805808A4BE0E559360 /* SDWebImageOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		D718436A84B6088C03E49ED4CC27FFC7 /* MJRefreshAutoFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 1370E9C04CE41093E0A3DFEB288DF759 /* MJRefreshAutoFooter.m */; };
 		DB79AF6EF049FF4FAA6C44BB8D44744C /* UIImage+MultiFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 334BC9B2CB4225FAE7B015FABEC9B22F /* UIImage+MultiFormat.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
@@ -964,7 +964,7 @@
 			buildConfigurationList = 20217F7F18136BEC6503B8147352D3E3 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */;
 			buildPhases = (
 				F69A1D7D9933B5C2BFB41B06C24EC219 /* Headers */,
-				12490B6EBA14F6030F9CBD9575807097 /* Sources */,
+				39261A3821EA0B45F95301099852B974 /* Sources */,
 				DCBC7FE987FB53FBB71A9E7155D9E871 /* Frameworks */,
 			);
 			buildRules = (
@@ -1069,15 +1069,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		12490B6EBA14F6030F9CBD9575807097 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C7FD66D3D320095B45AD9D39EF1B858B /* MBProgressHUD-dummy.m in Sources */,
-				D6438BA4F863AE0A7891F212EE3C06D0 /* MBProgressHUD.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		24CB0D48299351DA5E30DE3BFFBE3261 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1091,6 +1082,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				5EA4FAFBF9D4F310E65D5F0405C51595 /* Pods-AppFrame-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39261A3821EA0B45F95301099852B974 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A3E297705F3A4547756B09B4044B940 /* MBProgressHUD-dummy.m in Sources */,
+				7437F5624147DCDF74F3343BBB08B7EC /* MBProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1231,30 +1231,6 @@
 			};
 			name = Release;
 		};
-		2713A1AD3CC7005816E6C476FEBAD19D /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AEFE5C8EBBE371B03F06A373B4E02C3 /* MBProgressHUD.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = MBProgressHUD;
-				PRODUCT_NAME = MBProgressHUD;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		287AE50CECDB63974F897730E1A6A328 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E3AFE376AA7D5024DAC9E699B11481D5 /* Pods-AppFrameTests.debug.xcconfig */;
@@ -1345,29 +1321,6 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
-		};
-		690C1B11780ABBA0F742607D082E784B /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AEFE5C8EBBE371B03F06A373B4E02C3 /* MBProgressHUD.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRIVATE_HEADERS_FOLDER_PATH = "";
-				PRODUCT_MODULE_NAME = MBProgressHUD;
-				PRODUCT_NAME = MBProgressHUD;
-				PUBLIC_HEADERS_FOLDER_PATH = "";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
 		};
 		7EB39165200C431E18490E038A42D11B /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1564,6 +1517,31 @@
 			};
 			name = Release;
 		};
+		ABA61C783362551EE8E219B350178437 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AEFE5C8EBBE371B03F06A373B4E02C3 /* MBProgressHUD.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = MBProgressHUD;
+				PRODUCT_NAME = MBProgressHUD;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		BB527DFBC43B610FB0AF7B3B570B1EF1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BC49BE8D2C7D7B851F3FD7856C0FCCAE /* Pods-AppFrameUITests.release.xcconfig */;
@@ -1628,6 +1606,30 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		E674C296819F57A75520CE43F948A157 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AEFE5C8EBBE371B03F06A373B4E02C3 /* MBProgressHUD.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/MBProgressHUD/MBProgressHUD-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = MBProgressHUD;
+				PRODUCT_NAME = MBProgressHUD;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
 		};
 		E9D3AFA5D3ECBB98C0EE45BA0183E9C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1721,8 +1723,8 @@
 		20217F7F18136BEC6503B8147352D3E3 /* Build configuration list for PBXNativeTarget "MBProgressHUD" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				690C1B11780ABBA0F742607D082E784B /* Debug */,
-				2713A1AD3CC7005816E6C476FEBAD19D /* Release */,
+				E674C296819F57A75520CE43F948A157 /* Debug */,
+				ABA61C783362551EE8E219B350178437 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
