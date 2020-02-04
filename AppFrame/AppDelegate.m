@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 #import "QMBaseNavigationController.h"
 #import "ViewController.h"
+
+#import "QMProgressHUD.h"
 @interface AppDelegate ()
 
 @end
@@ -29,6 +31,13 @@
     
     
     NSLog(@"-------------%@",[UIDevice currentDevice].systemVersion);
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2. * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [QMProgressHUD showTextViewTo:nil bezelViewColor:[UIColor colorWithWhite:0 alpha:0.6] offset:CGPointZero minSize:CGSizeZero backgroundViewColor:[UIColor clearColor] textColor:[UIColor whiteColor] text:@"测试" duration:2 complete:^{
+
+        }];
+        
+    });
     
     return YES;
 }
