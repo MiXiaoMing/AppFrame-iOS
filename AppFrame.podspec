@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'AppFrame'
-  s.version          = '1.1.1'
+  s.version          = '1.1.4'
   s.summary          = 'AppFrame'
   s.homepage         = 'https://github.com/MiXiaoMing'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
@@ -196,7 +196,7 @@ Pod::Spec.new do |s|
     ss.subspec 'General' do |sss|
 
       sss.subspec 'QMLoading' do |ssss|
-        ssss.dependency 'MBProgressHUD', '~> 1.1.0'
+        ssss.dependency 'MBProgressHUD', '~> 0.9.0'
         ssss.source_files = 'AppFrame/Framework/General/QMLoading/*.{h,m}'
         ssss.public_header_files = 'AppFrame/Framework/General/QMLoading/*.h'
       end

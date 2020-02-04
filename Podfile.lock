@@ -24,7 +24,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (~> 3.2.1)
   - DZNEmptyDataSet (~> 1.8.1)
-  - MBProgressHUD (~> 0.9.0)
+  - MBProgressHUD (~> 0.9)
   - MJRefresh (~> 3.1.0)
   - SDWebImage (~> 3.7.0)
 
@@ -43,6 +43,6 @@ SPEC CHECKSUMS:
   MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
 
-PODFILE CHECKSUM: 5a68620ea1717fd68078fdd908b32d2aaa1efa1d
+PODFILE CHECKSUM: eda20c39d47daa2d190da0e3629e2524c0deecd1
 
 COCOAPODS: 1.8.4
