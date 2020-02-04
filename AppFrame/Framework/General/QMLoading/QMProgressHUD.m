@@ -7,7 +7,7 @@
 //
 
 #import "QMProgressHUD.h"
-#import "MBProgressHUD.h"
+#import <MBProgressHUD/MBProgressHUD.h>
 @implementation QMProgressHUD
 
 // 1.1.0
