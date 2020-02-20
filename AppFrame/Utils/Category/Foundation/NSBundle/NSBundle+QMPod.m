@@ -90,4 +90,21 @@
     return image;
 }
 
++ (NSString *)pathWithFileName:(NSString *)fileName podName:(NSString *)podName ofType:(NSString *)ext
+{
+    
+    if (!fileName ) {
+        return nil;
+    }
+    NSBundle * pod_bundle =[self bundleWithPodName:podName];
+    if (!pod_bundle) {
+        return nil;
+    }
+    if (!pod_bundle.loaded) {
+        [pod_bundle load];
+    }
+    NSString *filePath =[pod_bundle pathForResource:fileName ofType:ext];
+    return filePath;
+}
+
 @end
