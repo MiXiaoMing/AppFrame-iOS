@@ -44,6 +44,26 @@
     return nil;
 }
 
++ (NSBundle *)bundleWithBundleName:(NSString *)bundleName{
+    if (!bundleName) {
+        return [NSBundle mainBundle];
+    }
+    
+    NSString *bundlePath = [NSBundle mainBundle].bundlePath;
+    bundlePath = [NSString stringWithFormat:@"%@/%@.bundle",bundlePath,bundleName];
+    NSURL *url;
+    if (@available(iOS 9.0,*)) {
+        NSString *charactersToEscape = @"?!@#$^&%*+,:;='\"`<>()[]{}/\\| ";
+        NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:charactersToEscape] invertedSet];
+        url = [NSURL URLWithString:[[NSString stringWithFormat:@"file://%@",bundlePath] stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters]];
+    }else
+    {
+        url = [NSURL URLWithString:[[NSString stringWithFormat:@"file://%@",bundlePath] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    }
+    NSBundle *bundle =[NSBundle bundleWithURL:url];
+    return bundle;
+}
+
 + (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language podName:(nullable NSString *)podName{
     NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle bundleWithPodName:podName] pathForResource:language ofType:@"lproj"]];
     NSString *value = [bundle localizedStringForKey:key value:nil table:nil];
@@ -64,5 +84,39 @@
     }
     UIImage *image = [UIImage imageNamed:fileName inBundle:pod_bundle compatibleWithTraitCollection:nil];
     return image;
+}
+
++ (UIImage *)getPodBundleImageWith:(nullable NSString *)podName bundleName:(NSString *)bundleName fileName:(NSString *)fileName type:(NSString *)type
+{
+    if (!podName) {
+        NSBundle *bundle = [self bundleWithBundleName:bundleName];
+        NSString *filePath = [bundle pathForResource:fileName ofType:nil];
+        return [UIImage imageWithContentsOfFile:filePath];
+    }
+    
+    NSBundle * pod_bundle =[self bundleWithPodName:podName];
+    if (!bundleName) {
+        NSString *filePath = [pod_bundle pathForResource:fileName ofType:nil];
+        return [UIImage imageWithContentsOfFile:filePath];
+    }
+    
+    NSString *bundlePath = pod_bundle.bundlePath;
+    bundlePath = [NSString stringWithFormat:@"%@/%@.bundle",bundlePath,podName];
+    NSURL *url;
+    if (@available(iOS 9.0,*)) {
+        NSString *charactersToEscape = @"?!@#$^&%*+,:;='\"`<>()[]{}/\\| ";
+        NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:charactersToEscape] invertedSet];
+        
+        url = [NSURL URLWithString:[[NSString stringWithFormat:@"file://%@/%@.bundle",bundlePath,bundleName] stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters]];
+    }else
+    {
+        url = [NSURL URLWithString:[[NSString stringWithFormat:@"file://%@/%@.bundle",bundlePath,bundleName] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    }
+    NSBundle *bundle =[NSBundle bundleWithURL:url];
+    if (bundle) {
+        NSString *filePath = [bundle pathForResource:fileName ofType:nil];
+        return [UIImage imageWithContentsOfFile:filePath];
+    }
+    return nil;
 }
 @end
