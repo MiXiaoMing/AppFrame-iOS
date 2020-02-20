@@ -27,6 +27,7 @@
     NSURL * url = [bundle URLForResource:podName withExtension:@"bundle"];
     if (!url) {
         NSArray *frameWorks = [NSBundle allFrameworks];
+        BOOL isContain = false;
         for (NSBundle *tempBundle in frameWorks) {
             url = [tempBundle URLForResource:podName withExtension:@"bundle"];
             if (url) {
@@ -36,6 +37,9 @@
                 }
                 return bundle;
             }
+        }
+        if (!isContain) {
+            return [NSBundle mainBundle];
         }
     }else{
         bundle =[NSBundle bundleWithURL:url];
@@ -86,37 +90,4 @@
     return image;
 }
 
-+ (UIImage *)getPodBundleImageWith:(nullable NSString *)podName bundleName:(NSString *)bundleName fileName:(NSString *)fileName type:(NSString *)type
-{
-    if (!podName) {
-        NSBundle *bundle = [self bundleWithBundleName:bundleName];
-        NSString *filePath = [bundle pathForResource:fileName ofType:nil];
-        return [UIImage imageWithContentsOfFile:filePath];
-    }
-    
-    NSBundle * pod_bundle =[self bundleWithPodName:podName];
-    if (!bundleName) {
-        NSString *filePath = [pod_bundle pathForResource:fileName ofType:nil];
-        return [UIImage imageWithContentsOfFile:filePath];
-    }
-    
-    NSString *bundlePath = pod_bundle.bundlePath;
-    bundlePath = [NSString stringWithFormat:@"%@/%@.bundle",bundlePath,podName];
-    NSURL *url;
-    if (@available(iOS 9.0,*)) {
-        NSString *charactersToEscape = @"?!@#$^&%*+,:;='\"`<>()[]{}/\\| ";
-        NSCharacterSet *allowedCharacters = [[NSCharacterSet characterSetWithCharactersInString:charactersToEscape] invertedSet];
-        
-        url = [NSURL URLWithString:[[NSString stringWithFormat:@"file://%@/%@.bundle",bundlePath,bundleName] stringByAddingPercentEncodingWithAllowedCharacters:allowedCharacters]];
-    }else
-    {
-        url = [NSURL URLWithString:[[NSString stringWithFormat:@"file://%@/%@.bundle",bundlePath,bundleName] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-    }
-    NSBundle *bundle =[NSBundle bundleWithURL:url];
-    if (bundle) {
-        NSString *filePath = [bundle pathForResource:fileName ofType:nil];
-        return [UIImage imageWithContentsOfFile:filePath];
-    }
-    return nil;
-}
 @end

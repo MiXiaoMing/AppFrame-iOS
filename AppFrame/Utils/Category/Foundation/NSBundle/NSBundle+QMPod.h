@@ -27,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSString *)localizedStringForKey:(NSString *)key language:(NSString *)language podName:(nullable NSString *)podName;
 + (UIImage *)getPodImageWith:(nullable NSString *)podName fileName:(NSString *)fileName type:(NSString *)type;
-+ (UIImage *)getPodBundleImageWith:(nullable NSString *)podName bundleName:(NSString *)bundleName fileName:(NSString *)fileName type:(NSString *)type;
+
 @end
 
 NS_ASSUME_NONNULL_END
