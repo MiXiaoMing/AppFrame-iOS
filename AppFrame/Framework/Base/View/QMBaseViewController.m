@@ -9,7 +9,7 @@
 #import "QMBaseViewController.h"
 #import "NSBundle+QMPod.h"
 #import "UIBarButtonItem+QMCreat.h"
-
+#import "PerformanceMonitor.h"
 static UIImage *leftBackImage;
 
 @interface QMBaseViewController ()
@@ -32,6 +32,7 @@ static UIImage *leftBackImage;
 {
     [super viewDidAppear:animated];
     NSLog(@"currentClass^^%@  ", NSStringFromClass([self class]));
+    [[PerformanceMonitor shareTools] getVCDurationTime:self];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {
@@ -45,6 +46,7 @@ static UIImage *leftBackImage;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[PerformanceMonitor shareTools] getVCBiginTime:self];
     self.view.backgroundColor = [UIColor whiteColor];
     self.edgesForExtendedLayout = UIRectEdgeNone;
     if (self.navigationController.viewControllers.count != 1) {
