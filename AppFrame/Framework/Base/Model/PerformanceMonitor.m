@@ -162,6 +162,7 @@ static PerformanceMonitor *tools = nil;
                             timeNow->tm_sec,
                             timeNow->tm_gmtoff];
     NSLog(@"%@\n:url:%@ \n:duration:%@",monitorLog,url,duration);
+    monitorLog = [self getNowTimeTimestamp3];
     [self saveUrl:url time:duration recordTime:monitorLog];//本地存储
 }
 
@@ -179,6 +180,7 @@ static PerformanceMonitor *tools = nil;
                             ];
     NSLog(@"%@:%@ - %@",monitorLog,vcName,duration);
     //数据存储本地
+    monitorLog = [self getNowTimeTimestamp3];
     [self saveVC:vcName time:duration recordTime:monitorLog];
    // [self getCurrentBatteryLevel];
 }
@@ -200,15 +202,7 @@ static PerformanceMonitor *tools = nil;
                                      timeNow->tm_gmtoff,
                                      cpuUsage,
                                      memoryUsage];
-        NSString *recordTime= [NSString stringWithFormat:@"%d-%d-%d %d:%d:%d.%ld",
-        timeNow->tm_year,
-        timeNow->tm_mon,
-        timeNow->tm_mday,
-        timeNow->tm_hour,
-        timeNow->tm_min,
-        timeNow->tm_sec,
-        timeNow->tm_gmtoff];
-        NSLog(@"log:%@",monitorLog);
+        NSString *recordTime= [self getNowTimeTimestamp3];
         
         dispatch_async(dispatch_get_main_queue(), ^{
             //返回主线程存储数据
@@ -261,6 +255,7 @@ static PerformanceMonitor *tools = nil;
  @param recordTime 记录时间
  */
 - (void)saveUrl:(NSString *)url time:(NSString *)duration recordTime:(NSString *)recordTime {
+
     if (url.length<=0||duration.length<=0||recordTime.length<=0) {
         return;
     }
@@ -296,6 +291,7 @@ static PerformanceMonitor *tools = nil;
     
     @synchronized (self) {
         //加锁，保证每条数据都存进去
+
         if (use.length<=0||recordTime.length<=0||memory.length<=0) {
                return;
            }
@@ -629,6 +625,30 @@ int64_t memoryUsageb(void) {
     
     return array;
     
+}
+
+-(NSString *)getNowTimeTimestamp3{
+
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss SSS"]; // 设置想要的格式，hh与HH的区别:分别表示12小时制,24小时制
+
+    //设置时区,这一点对时间的处理有时很重要
+
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Beijing"];
+
+    [formatter setTimeZone:timeZone];
+
+    NSDate *datenow = [NSDate date];
+
+    NSString *timeSp = [NSString stringWithFormat:@"%ld", (long)[datenow timeIntervalSince1970]*1000];
+
+    return timeSp;
+
 }
 
 @end

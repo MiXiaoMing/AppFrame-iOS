@@ -46,6 +46,8 @@ NS_ASSUME_NONNULL_BEGIN
 -(NSArray *)getUrlDurationList;
 /**获取内存，cpu本地存储数据**/
 -(NSArray *)getCPUAndMemoryList;
+
+-(NSString *)getNowTimeTimestamp3;
 @end
 
 NS_ASSUME_NONNULL_END
