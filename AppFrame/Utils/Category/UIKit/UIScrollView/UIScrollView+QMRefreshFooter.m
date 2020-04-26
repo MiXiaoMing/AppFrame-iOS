@@ -48,7 +48,8 @@ static char countKey;
 }
 
 - (void)dealloc {
-    if (self.currentPageCount) {
+    NSNumber *currentPageCount = objc_getAssociatedObject(self, &countKey);
+    if (currentPageCount) {
         [self.mj_footer removeObserver:self forKeyPath:@"frame"];
     }
 }
